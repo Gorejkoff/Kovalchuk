@@ -1,0 +1,75 @@
+<section class="services">
+   <div class="services__container">
+      <div class="services__body">
+         @@include('../Elements/Anhor.html',{id:"services", text:"Услуги"})
+         <div class="services__title">Компетенции</div>
+         <div class="services__content">
+
+            <div class="services__certificates">
+
+               <div class="services__enum">
+                  <div class="services__enum-title">Сертификаты</div>
+                  <div class="services__enum-item">
+                     <div class="services__enum-image">
+                        <div class="services__enum-image-sell">
+                           <img src="@img/png/certificates-1.png" alt="сертификат">
+                        </div>
+                     </div>
+                     <div class="services__enum-name">Партнер Bitrix</div>
+                  </div>
+                  <div class="services__enum-item">
+                     <div class="services__enum-image">
+                        <div class="services__enum-image-sell">
+                           <img src="@img/png/certificates-2.png" alt="сертификат">
+                        </div>
+                     </div>
+                     <div class="services__enum-name"> AmoCRM</div>
+                  </div>
+                  <div class="services__enum-item">
+                     <div class="services__enum-image">
+                        <div class="services__enum-image-sell">
+                           <img src="@img/png/certificates-3.png" alt="сертификат">
+                        </div>
+                     </div>
+                     <div class="services__enum-name">Яндекс Директ</div>
+                  </div>
+                  <ul class="services__enum-list">
+                     <li>Сертифицированные специалисты</li>
+                     <li>Стабильная и слаженная команда</li>
+                     <li>Выстроенные бизнес процессы</li>
+                     <li>Находимся в Ижевске, работаем по РФ и СНГ</li>
+                  </ul>
+               </div>
+
+            </div>
+
+            <div class="services__grid">
+               @@loop("../Services/Services-Cell.html","json/services.json")
+               <div class="services__cell">
+                  <div class="services__cell-body">
+                     <div class="services__cell-header">
+                        <div>
+                           <img src="@img/svg/vc-ru.svg" alt="img">
+                        </div>
+                        <div class="services__tag">
+                           <span>Статья</span>
+                        </div>
+                     </div>
+                     <div class="services__cell-image">
+                        <img src="@img/svg/icon-gray-8.svg" alt="icon">
+                     </div>
+                     <div class="services__cell-text">Государственная помощь для бизнеса, токсичные деньги или возможность для старта</div>
+                     <div class="services__cell-arrow">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <circle cx="32" cy="32" r="32" fill="white" fill-opacity="0.04" />
+                           <path d="M24.5333 40.0001L22.6666 38.1334L35.4666 25.3334H24V22.6667H40V38.6667H37.3333V27.2001L24.5333 40.0001Z" fill="white" />
+                        </svg>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</section>

@@ -1,0 +1,44 @@
+.case {
+
+   &__container {}
+
+   &__body {}
+
+   &__trigger {
+      padding-top: var(--height-header);
+      min-height: var(--vh);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+   }
+
+   &__sell {}
+
+   &__margin-anhor {
+      margin-bottom: 80px;
+   }
+
+   &__text {
+      width: 100vw;
+      display: flex;
+
+      font-weight: 500;
+      font-size: 88px;
+      line-height: 100%;
+      color: #fff;
+   }
+
+   &__text-block {
+      min-width: 100vw;
+      width: 100vw;
+   }
+
+   &__text-table {
+      display: flex;
+   }
+
+   &__button {
+      display: flex;
+      justify-content: center;
+   }
+}

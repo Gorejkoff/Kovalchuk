@@ -1,0 +1,37 @@
+[
+   {
+      "title": "Разработка сайтов",
+      "price": "от 114 900 ₽",
+      "icon": "icon-gray-1.svg"
+   },
+   {
+      "title": "Упаковка бизнеса",
+      "price": "от 59 000 ₽",
+      "icon": "icon-gray-2.svg"
+   },
+   {
+      "title": "Контекстная реклама",
+      "price": "от 114 900 ₽",
+      "icon": "icon-gray-3.svg"
+   },
+   {
+      "title": "Авито для Бизнеса",
+      "price": "от 59 000 ₽",
+      "icon": "icon-gray-4.svg"
+   },
+   {
+      "title": "Разработка личных кабинетов",
+      "price": "от 114 900 ₽",
+      "icon": "icon-gray-5.svg"
+   },
+   {
+      "title": "Разработка CRM систем",
+      "price": "от 114 900 ₽",
+      "icon": "icon-gray-6.svg"
+   },
+   {
+      "title": "E-mail лидогенерация",
+      "price": "от 59 000 ₽",
+      "icon": "icon-gray-6.svg"
+   }
+]

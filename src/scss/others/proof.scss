@@ -1,0 +1,116 @@
+.proof {
+
+   &__container {}
+
+   &__body {
+      margin: 0 auto;
+      max-width: 1094px;
+   }
+
+   &__block {
+      margin-bottom: 32px;
+      display: flex;
+      gap: 32px;
+
+      &:nth-child(odd) .proof__card:first-child {
+         flex: 0 0 46.25%;
+      }
+
+      &:nth-child(even) .proof__card:last-child {
+         flex: 0 0 46.25%;
+      }
+   }
+
+   &__card {
+      padding: 32px;
+      position: relative;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: min(598px, 41.5vw);
+      border-radius: 24px;
+      overflow: hidden;
+
+      img {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         z-index: -1;
+      }
+
+      &:hover {
+         .proof__arrow {
+            opacity: 1;
+         }
+      }
+
+      &.black {
+         .proof__text {
+            color: #020102;
+         }
+
+         .proof__arrow {
+            path {
+               stroke: #000;
+            }
+         }
+
+      }
+   }
+
+   &__arrow {
+      opacity: 0;
+      transition: opacity 0.5s;
+   }
+
+   &__footer {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__text {
+      max-width: 384px;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 100%;
+      letter-spacing: 0.01em;
+   }
+
+   &__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+
+      span {
+         display: inline-flex;
+         align-items: center;
+         padding: 9px 16px 7px;
+         font-weight: 500;
+         font-size: 16px;
+         line-height: 100%;
+         letter-spacing: 0.01em;
+         color: #fff;
+         backdrop-filter: blur(40px);
+         background: rgba(31, 30, 31, 0.6);
+         border-radius: 20px;
+      }
+   }
+
+   &__more {
+      display: block;
+      border-radius: 30px;
+      padding: 19px 20px 17px;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 100%;
+      color: #fff;
+      text-align: center;
+      backdrop-filter: blur(40px);
+      background: #1f1e1f;
+   }
+}

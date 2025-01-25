@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+   @@include('html/1_head.html',{"title":"Ковальчук"})
+</head>
+
+<body>
+
+   <div class="wrapper">
+
+      <div class="header__wrapper">
+         @@include('html/Baner/Baner.html',{})
+         @@include('html/2_header.html',{})
+      </div>
+
+      <!--    <div id="scroll">
+
+         <div id="content"> -->
+
+      <div class="main">
+
+         @@include('html/First/First.html',{})
+         <div class="js-case-sticy">
+            @@include('html/Case/Case.html',{})
+            @@include('html/Case/Proof.html',{})
+         </div>
+         @@include('html/Services/Services.html',{})
+         @@include('html/Collaboration/Collaboration.html',{})
+         @@include('html/Decisions/Decisions.html',{})
+         @@include('html/About/About.html',{})
+         @@include('html/Contacts/Contacts.html',{})
+
+      </div>
+
+      <!--         </div>
+
+      </div> -->
+
+      @@include('html/4_footer.html',{})
+
+   </div>
+
+   @@include('html/Loader/Loader.html',{})
+
+   @@include('html/3_scripts.html',{ swiper: false, })
+
+</body>
+
+</html>

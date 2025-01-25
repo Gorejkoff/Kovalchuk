@@ -1,0 +1,47 @@
+.baner {
+   padding: 4px 0;
+   background-color: #0060FE;
+   min-height: 24px;
+
+   &__container {}
+
+   &__body {
+      display: flex;
+      align-items: stretch;
+      gap: 12px;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1;
+      letter-spacing: 0.03em;
+      color: #fff;
+
+      &>* {
+         display: flex;
+         align-items: center;
+      }
+   }
+
+   &__icon {
+      img {
+         max-width: 12px;
+      }
+   }
+
+   &__title {}
+
+   &__text {
+      opacity: 0.6;
+   }
+
+   &__link {}
+
+   &__close {
+      margin-left: auto;
+
+      button {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+   }
+}

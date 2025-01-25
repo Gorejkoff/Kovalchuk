@@ -1,0 +1,110 @@
+@use '../assets/variablesSCSS.scss' as *;
+
+.footer {
+   margin-top: 64px;
+
+   &__container {}
+
+   &__body {
+      padding-bottom: 40px;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+   }
+
+   &__icon {
+      a {
+         display: block;
+      }
+
+      img {
+         max-width: 138px;
+      }
+
+   }
+
+   &__nav {
+      margin-bottom: 74px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+   }
+
+   &__up {
+      button {
+         margin-left: auto;
+      }
+   }
+
+   &__address {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 112%;
+      color: #fff;
+
+      p:first-child {
+         margin-bottom: 32px;
+      }
+   }
+
+   &__services {
+      margin-bottom: 48px;
+
+      p {
+         margin-bottom: 32px;
+         font-weight: 500;
+         font-size: 24px;
+         line-height: 108%;
+         letter-spacing: 0.01em;
+         color: #fff;
+      }
+
+      ol {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         gap: 16px;
+      }
+
+      li {
+         list-style: none;
+      }
+
+      a {
+         display: block;
+         font-weight: 500;
+         font-size: 14px;
+         line-height: 114%;
+         letter-spacing: 0.01em;
+         color: rgba(255, 255, 255, 0.6);
+      }
+   }
+
+   &__links {
+      li {
+         list-style: none;
+         margin-bottom: 16px;
+      }
+
+      a {
+         font-weight: 500;
+         font-size: 24px;
+         line-height: 117%;
+         letter-spacing: 0.01em;
+         color: #fff;
+      }
+   }
+
+   &__under {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 117%;
+      color: rgba(255, 255, 255, 0.4);
+
+      &.under-group {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         gap: 16px;
+      }
+   }
+}

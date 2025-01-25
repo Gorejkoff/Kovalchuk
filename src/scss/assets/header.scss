@@ -1,0 +1,58 @@
+@use '../assets/variablesSCSS.scss' as *;
+
+.header {
+
+   padding: 22px 0;
+   background: rgba(43, 41, 41, 0.24);
+   backdrop-filter: blur(40px);
+
+   &__wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+   }
+
+   &__container {}
+
+   &__body {
+      display: flex;
+      justify-content: space-between;
+
+      &>* {
+         display: flex;
+         align-items: center;
+      }
+   }
+
+   &__group {
+      gap: 16px;
+
+      &>* {
+         display: flex;
+         align-items: center;
+      }
+   }
+
+   &__logo {
+
+
+      a {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      svg {
+         max-height: 19px;
+         max-width: 138px;
+      }
+   }
+
+   &__nav {
+      display: flex;
+      justify-content: center;
+   }
+
+}
