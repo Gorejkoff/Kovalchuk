@@ -1,14 +1,44 @@
 <div class="contacts">
    <div class="contacts__container">
       @@include('../Elements/Anhor.html',{id:"contacts", text:"Контакты"})
+      @@include('./Subscription.html',{})
+
       <div class="contacts__body">
-         <div class="contacts__content">
-            <div class="contacts__text">Подписывайся на наш Telegram-канал и получи полезную информацию по CEO-продвижению и не только.</div>
-            @@include('../Elements/Button.html',{text: "Подписаться"})
+
+         <div class="contacts__map">
+            <div class="contacts__map-header">
+               <div class="contacts__map-phone">8 (800) 2000-600</div>
+               <div>
+                  @@include('../Elements/Social_nav_panel.html',{})
+               </div>
+               <div class="contacts__map-address">ул. Вадима Сивкова, 279</div>
+            </div>
+            <div class="contacts__link">
+               <a href="#0">Открыть в <span>Яндекс-картах</span> </a>
+            </div>
+            <img class="contacts__map-bg" src="@img/jpg/map.jpg" alt="карта">
          </div>
-         <div class="contacts__image">
-            <img src="@img/png/img-1.png" alt="Телефон в руках">
+
+         <div class="contacts__consultation">
+            <div class="contacts__consultation-header">
+               <div class="contacts__consultation-title">
+                  Личная консультация <span>от Дениса Ковальчука</span>
+               </div>
+               <div class="contacts__consultation-foto">
+                  <img src="@img/jpg/foto.jpg" alt="фотография">
+               </div>
+            </div>
+            <div></div>
+            <div class="contacts__consultation-text">15 лет в разработке сайтов, 11 лет в маркетинге. Поделюсь своим опытом, разберем ваши задачи и решим сложные вопросы. Свежий взгляд со стороны.</div>
+            <div class="contacts__consultation-footer">
+               <div class="contacts__link">
+                  <a href="#0">Записаться на конnpmсультацию</a>
+               </div>
+               <div class="contacts__consultation-price">10 000 ₽</div>
+            </div>
          </div>
+
       </div>
+
    </div>
 </div>

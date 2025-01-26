@@ -1,7 +1,7 @@
 "use strict"
 
 // window.addEventListener('load', (event) => {});
-
+window.scrollBy(0, 0);
 // desktop or mobile (mouse or touchscreen)
 const isMobile = {
    Android: function () { return navigator.userAgent.match(/Android/i) },
@@ -23,6 +23,7 @@ const MIN768 = window.matchMedia('(min-width: 768px)');
 // variables
 const HEADER = document.getElementById('header');
 const VW = window.innerWidth;
+const VH = window.innerHeight;
 const CW = document.querySelector('[class*="__container"]').offsetWidth;
 
 

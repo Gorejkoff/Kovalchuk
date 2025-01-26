@@ -1,7 +1,7 @@
 "use strict"
 
 // window.addEventListener('load', (event) => {});
-
+window.scrollBy(0, 0);
 // desktop or mobile (mouse or touchscreen)
 const isMobile = {
    Android: function () { return navigator.userAgent.match(/Android/i) },
@@ -23,6 +23,7 @@ const MIN768 = window.matchMedia('(min-width: 768px)');
 // variables
 const HEADER = document.getElementById('header');
 const VW = window.innerWidth;
+const VH = window.innerHeight;
 const CW = document.querySelector('[class*="__container"]').offsetWidth;
 
 
@@ -97,19 +98,31 @@ document.documentElement.addEventListener("click", (event) => {
 //    }
 // }
 
+
 window.addEventListener('load', (event) => {
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
    // ScrollTrigger.config({ ignoreMobileResize: true });
    // ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
 
-   // const smoother = ScrollSmoother.create({
-   //    wrapper: "#scroll",
-   //    content: "#content",
-   //    smooth: 15,
-   //    smoothTouch: true,
-   //    effects: true,
-   //    normalizeScroll: true
-   // })
+   const smoother = ScrollSmoother.create({
+      wrapper: "#scroll",
+      content: "#content",
+      smooth: 4,
+      smoothTouch: true,
+      effects: true,
+      // normalizeScroll: true
+   })
+
+
+   const FIRST = document.querySelector('.first');
+   let xTo = gsap.quickTo(".first__gallery", "x", { duration: 0.6 });
+   let yTo = gsap.quickTo(".first__gallery", "y", { duration: 0.6 });
+   FIRST.addEventListener("mousemove", (event) => {
+      xTo(-(event.clientX - window.innerWidth / 2) / 10);
+      yTo(-(event.clientY - window.innerHeight / 2) / 10);
+   });
+
+
 
 
    // const tr = {
@@ -130,6 +143,29 @@ window.addEventListener('load', (event) => {
    // }
 
 
+   gsap.to(".case", {
+      scrollTrigger: {
+         trigger: ".proof",
+         start: `1 100%`,
+         end: `100% 100%`,
+         pin: ".case",
+         pinSpacing: false,
+         scrub: 0,
+         // markers: {
+         //    startColor: "blue",
+         //    endColor: "red",
+         //    fontSize: "40px",
+         //    fontWeight: "bold",
+         //    indent: 20
+         // }
+      }
+   })
+
+
+
+
+
+
    const CASE_TEXT = document.querySelector('.js-case-text');
 
    const tl = gsap.timeline({
@@ -142,12 +178,12 @@ window.addEventListener('load', (event) => {
       }
    })
 
-
    function addWhiteWords(wordsList, array) {
       wordsList.forEach((element, index) => {
          if (array.includes(index + 1)) { element.classList.add('white') };
       })
    }
+
 
    const text_1 = document.querySelectorAll('.js-text-animate-1 .word span');
    const words_1 = document.querySelectorAll('.js-text-animate-1 .word');
@@ -192,6 +228,28 @@ window.addEventListener('load', (event) => {
          end: "50% 10%",
       }
    })
+
+   const ENUM_HEIGHT = document.querySelector('.services__enum').offsetHeight;
+
+   gsap.to(".services__enum", {
+      scrollTrigger: {
+         trigger: ".services__certificates",
+         start: `${ENUM_HEIGHT + 80} 100%`,
+         end: `100% ${VH - 80}`,
+         pin: ".services__enum",
+         scrub: 0,
+         // markers: {
+         //    startColor: "blue",
+         //    endColor: "red",
+         //    fontSize: "40px",
+         //    fontWeight: "bold",
+         //    indent: 20
+         // }
+      }
+   })
+
+
+
 
    const DECISIONS_BODY = document.querySelector('.js-decisions-body');
 
