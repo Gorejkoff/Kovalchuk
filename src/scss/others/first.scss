@@ -30,6 +30,8 @@
       position: absolute;
       transform: translate(-50%, -50%);
       z-index: -2;
+      display: flex;
+      align-items: center;
       animation: image_scale 1s 3s forwards;
    }
 

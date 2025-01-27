@@ -1,24 +1,19 @@
-//  exemple
-// const tr = {
-//    trigger: "#author-title",
-//    start: "0% 0%",
-//    end: "100% 100%",
-//    end: () => widthAuthorGallery + "px",
-//    pin: true,
-//    pin: ".about-author__body",
-//    pinSpacing: true,
-//    scrub: true,
-//    markers: {
-//       startColor: "green",
-//       endColor: "red",
-//       fontSize: "40px",
-//       fontWeight: "bold",
-//       indent: 20
-//    }
-// }
+function toggleClassScrollHeader(props) {
+   document.body.classList.toggle('scroll-header', props)
+}
+function headerMoveUp() {
+   toggleClassScrollHeader(true)
+   WRAPPER.prepend(HEADER_WRAPPER);
+}
+function headerMoveBack() {
+   toggleClassScrollHeader(false)
+   CONTENT.prepend(HEADER_WRAPPER);
+}
 
 
 window.addEventListener('load', (event) => {
+   window.scrollTo(0, 0);
+
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
    // ScrollTrigger.config({ ignoreMobileResize: true });
    // ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
@@ -33,34 +28,29 @@ window.addEventListener('load', (event) => {
    })
 
 
+
+
+
+   gsap.to('.header__wrapper', {
+      scrollTrigger: {
+         trigger: ".header__wrapper",
+         start: "150% 0",
+         end: "0 0",
+         onEnter: () => headerMoveUp(),
+         onEnterBack: () => headerMoveBack(),
+      }
+
+   })
+
+
+
    const FIRST = document.querySelector('.first');
-   let xTo = gsap.quickTo(".first__gallery", "x", { duration: 0.6 });
-   let yTo = gsap.quickTo(".first__gallery", "y", { duration: 0.6 });
+   let xTo = gsap.quickTo(".first__gallery", "x", { duration: 1 });
+   let yTo = gsap.quickTo(".first__gallery", "y", { duration: 1 });
    FIRST.addEventListener("mousemove", (event) => {
       xTo(-(event.clientX - window.innerWidth / 2) / 10);
       yTo(-(event.clientY - window.innerHeight / 2) / 10);
    });
-
-
-
-
-   // const tr = {
-   //    trigger: ".case__text",
-   //    start: "0% 0%",
-   //    end: "100% 100%",
-   //    pin: true,
-   //    pin: ".about-author__body",
-   //    pinSpacing: true,
-   //    scrub: true,
-   //    markers: {
-   //       startColor: "green",
-   //       endColor: "red",
-   //       fontSize: "40px",
-   //       fontWeight: "bold",
-   //       indent: 20
-   //    }
-   // }
-
 
    gsap.to(".case", {
       scrollTrigger: {
@@ -70,20 +60,8 @@ window.addEventListener('load', (event) => {
          pin: ".case",
          pinSpacing: false,
          scrub: 0,
-         // markers: {
-         //    startColor: "blue",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
       }
    })
-
-
-
-
-
 
    const CASE_TEXT = document.querySelector('.js-case-text');
 
@@ -91,7 +69,7 @@ window.addEventListener('load', (event) => {
       scrollTrigger: {
          trigger: ".js-case-trigger",
          start: "0% 0%",
-         end: () => CASE_TEXT.offsetWidth * 5 + "px",
+         end: () => CASE_TEXT.offsetWidth * 2 + "px",
          pin: true,
          scrub: 0,
       }
@@ -103,7 +81,6 @@ window.addEventListener('load', (event) => {
       })
    }
 
-
    const text_1 = document.querySelectorAll('.js-text-animate-1 .word span');
    const words_1 = document.querySelectorAll('.js-text-animate-1 .word');
    const whiteWord_1 = [1, 3, 4, 5, 6, 7, 8];
@@ -114,7 +91,7 @@ window.addEventListener('load', (event) => {
    text_1.forEach((e) => {
       tl.to(e, 1, { opacity: 1 })
    })
-   tl.to('.js-case-text', 10, {
+   tl.to('.js-case-text', 20, {
       x: "-100vw",
 
    })
@@ -125,8 +102,6 @@ window.addEventListener('load', (event) => {
       tl.to(e, 1, { opacity: 1 })
    })
 
-
-
    function setPathFraming(vectorElement, parentElement) {
       const framing = document.querySelector(vectorElement);
       if (!framing) { return }
@@ -136,7 +111,6 @@ window.addEventListener('load', (event) => {
       parent.style.setProperty('--path-framing', path + 'px')
    }
    setPathFraming(".js-framing-path", ".js-parent-framing")
-
 
    gsap.to(".framing", {
       scrollTrigger: {
@@ -157,18 +131,8 @@ window.addEventListener('load', (event) => {
          end: `100% ${VH - 80}`,
          pin: ".services__enum",
          scrub: 0,
-         // markers: {
-         //    startColor: "blue",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
       }
    })
-
-
-
 
    const DECISIONS_BODY = document.querySelector('.js-decisions-body');
 
@@ -180,13 +144,6 @@ window.addEventListener('load', (event) => {
          end: () => DECISIONS_BODY.offsetWidth - CW + "px",
          pin: true,
          scrub: 0,
-         // markers: {
-         //    startColor: "blue",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
       }
    })
 

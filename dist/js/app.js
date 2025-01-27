@@ -1,7 +1,6 @@
 "use strict"
 
 // window.addEventListener('load', (event) => {});
-window.scrollBy(0, 0);
 // desktop or mobile (mouse or touchscreen)
 const isMobile = {
    Android: function () { return navigator.userAgent.match(/Android/i) },
@@ -25,7 +24,10 @@ const HEADER = document.getElementById('header');
 const VW = window.innerWidth;
 const VH = window.innerHeight;
 const CW = document.querySelector('[class*="__container"]').offsetWidth;
-
+const BANER = document.querySelector('.baner');
+const HEADER_WRAPPER = document.querySelector('.header__wrapper');
+const WRAPPER = document.querySelector('.wrapper');
+const CONTENT = document.querySelector('#content');
 
 function throttle(callee, timeout) {
    let timer = null;
@@ -56,21 +58,31 @@ function addHeightVariable() {
 }
 addHeightVariable();
 
-// function setCW() {
-//    document.body.style.setProperty('--CW', CW + "px")
-// }
-// setCW();
+function openMenuMobile(open) {
+   if (typeof open === 'boolean') {
+      document.body.classList.toggle('mobile-menu-open', open);
+      return;
+   }
+   document.body.classList.toggle('mobile-menu-open');
+}
 
 // ** ======================= RESIZE ======================  ** //
 window.addEventListener('resize', () => {
    addHeightVariable();
-   setCW()
 })
 
 
 // ** ======================= CLICK ======================  ** //
 document.documentElement.addEventListener("click", (event) => {
-
+   if (event.target.closest('.baner__close')) { BANER.remove() };
+   if (event.target.closest('.burger')) {
+      openMenuMobile();
+      if (!isPC) {
+         document.body.classList.contains('mobile-menu-open') ?
+            WRAPPER.prepend(HEADER_WRAPPER) :
+            CONTENT.prepend(HEADER_WRAPPER)
+      }
+   };
 })
 
 
@@ -79,27 +91,78 @@ document.documentElement.addEventListener("click", (event) => {
 
 
 
-//  exemple
-// const tr = {
-//    trigger: "#author-title",
-//    start: "0% 0%",
-//    end: "100% 100%",
-//    end: () => widthAuthorGallery + "px",
-//    pin: true,
-//    pin: ".about-author__body",
-//    pinSpacing: true,
-//    scrub: true,
-//    markers: {
-//       startColor: "green",
-//       endColor: "red",
-//       fontSize: "40px",
-//       fontWeight: "bold",
-//       indent: 20
-//    }
-// }
+// перемещение блоков при адаптиве
+// data-da=".class,3,768" 
+// класс родителя куда перемещать
+// порядковый номер в родительском блоке куда перемещается начиная с 0 как индексы массива
+// ширина экрана min-width
+// два перемещения: data-da=".class,3,768,.class2,1,1024"
+const ARRAY_DATA_DA = document.querySelectorAll('[data-da]');
+ARRAY_DATA_DA.forEach(function (e) {
+   const dataArray = e.dataset.da.split(',');
+   const addressMove = searchDestination(e, dataArray[0]);
+   const addressMoveSecond = dataArray[3] && searchDestination(e, dataArray[3]);
+   const addressParent = e.parentElement;
+   const listChildren = addressParent.children;
+   const mediaQuery = window.matchMedia(`(min-width: ${dataArray[2]}px)`);
+   const mediaQuerySecond = dataArray[5] && window.matchMedia(`(min-width: ${dataArray[5]}px)`);
+   for (let i = 0; i < listChildren.length; i++) { !listChildren[i].dataset.n && listChildren[i].setAttribute('data-n', `${i}`) };
+   mediaQuery.matches && startChange(mediaQuery, addressMove, e, listChildren, addressParent, dataArray);
+   if (mediaQuerySecond && mediaQuerySecond.matches) moving(e, dataArray[4], addressMoveSecond);
+   mediaQuery.addEventListener('change', () => { startChange(mediaQuery, addressMove, e, listChildren, addressParent, dataArray) });
+   if (mediaQuerySecond) mediaQuerySecond.addEventListener('change', () => {
+      if (mediaQuerySecond.matches) { moving(e, dataArray[4], addressMoveSecond); return; };
+      startChange(mediaQuery, addressMove, e, listChildren, addressParent, dataArray);
+   });
+});
+
+function startChange(mediaQuery, addressMove, e, listChildren, addressParent, dataArray) {
+   if (mediaQuery.matches) { moving(e, dataArray[1], addressMove); return; }
+   if (listChildren.length > 0) {
+      for (let z = 0; z < listChildren.length; z++) {
+         if (listChildren[z].dataset.n > e.dataset.n) {
+            listChildren[z].before(e);
+            break;
+         } else if (z == listChildren.length - 1) {
+            addressParent.append(e);
+         }
+      }
+      return;
+   }
+   addressParent.prepend(e);
+};
+
+function searchDestination(e, n) {
+   if (e.classList.contains(n.slice(1))) { return e }
+   if (e.parentElement.querySelector(n)) { return e.parentElement.querySelector(n) };
+   return searchDestination(e.parentElement, n);
+}
+
+function moving(e, order, addressMove) {
+   if (order == "first") { addressMove.prepend(e); return; };
+   if (order == "last") { addressMove.append(e); return; };
+   if (addressMove.children[order]) { addressMove.children[order].before(e); return; }
+   addressMove.append(e);
+}
+
+
+
+function toggleClassScrollHeader(props) {
+   document.body.classList.toggle('scroll-header', props)
+}
+function headerMoveUp() {
+   toggleClassScrollHeader(true)
+   WRAPPER.prepend(HEADER_WRAPPER);
+}
+function headerMoveBack() {
+   toggleClassScrollHeader(false)
+   CONTENT.prepend(HEADER_WRAPPER);
+}
 
 
 window.addEventListener('load', (event) => {
+   window.scrollTo(0, 0);
+
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
    // ScrollTrigger.config({ ignoreMobileResize: true });
    // ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
@@ -114,34 +177,29 @@ window.addEventListener('load', (event) => {
    })
 
 
+
+
+
+   gsap.to('.header__wrapper', {
+      scrollTrigger: {
+         trigger: ".header__wrapper",
+         start: "150% 0",
+         end: "0 0",
+         onEnter: () => headerMoveUp(),
+         onEnterBack: () => headerMoveBack(),
+      }
+
+   })
+
+
+
    const FIRST = document.querySelector('.first');
-   let xTo = gsap.quickTo(".first__gallery", "x", { duration: 0.6 });
-   let yTo = gsap.quickTo(".first__gallery", "y", { duration: 0.6 });
+   let xTo = gsap.quickTo(".first__gallery", "x", { duration: 1 });
+   let yTo = gsap.quickTo(".first__gallery", "y", { duration: 1 });
    FIRST.addEventListener("mousemove", (event) => {
       xTo(-(event.clientX - window.innerWidth / 2) / 10);
       yTo(-(event.clientY - window.innerHeight / 2) / 10);
    });
-
-
-
-
-   // const tr = {
-   //    trigger: ".case__text",
-   //    start: "0% 0%",
-   //    end: "100% 100%",
-   //    pin: true,
-   //    pin: ".about-author__body",
-   //    pinSpacing: true,
-   //    scrub: true,
-   //    markers: {
-   //       startColor: "green",
-   //       endColor: "red",
-   //       fontSize: "40px",
-   //       fontWeight: "bold",
-   //       indent: 20
-   //    }
-   // }
-
 
    gsap.to(".case", {
       scrollTrigger: {
@@ -151,20 +209,8 @@ window.addEventListener('load', (event) => {
          pin: ".case",
          pinSpacing: false,
          scrub: 0,
-         // markers: {
-         //    startColor: "blue",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
       }
    })
-
-
-
-
-
 
    const CASE_TEXT = document.querySelector('.js-case-text');
 
@@ -172,7 +218,7 @@ window.addEventListener('load', (event) => {
       scrollTrigger: {
          trigger: ".js-case-trigger",
          start: "0% 0%",
-         end: () => CASE_TEXT.offsetWidth * 5 + "px",
+         end: () => CASE_TEXT.offsetWidth * 2 + "px",
          pin: true,
          scrub: 0,
       }
@@ -184,7 +230,6 @@ window.addEventListener('load', (event) => {
       })
    }
 
-
    const text_1 = document.querySelectorAll('.js-text-animate-1 .word span');
    const words_1 = document.querySelectorAll('.js-text-animate-1 .word');
    const whiteWord_1 = [1, 3, 4, 5, 6, 7, 8];
@@ -195,7 +240,7 @@ window.addEventListener('load', (event) => {
    text_1.forEach((e) => {
       tl.to(e, 1, { opacity: 1 })
    })
-   tl.to('.js-case-text', 10, {
+   tl.to('.js-case-text', 20, {
       x: "-100vw",
 
    })
@@ -206,8 +251,6 @@ window.addEventListener('load', (event) => {
       tl.to(e, 1, { opacity: 1 })
    })
 
-
-
    function setPathFraming(vectorElement, parentElement) {
       const framing = document.querySelector(vectorElement);
       if (!framing) { return }
@@ -217,7 +260,6 @@ window.addEventListener('load', (event) => {
       parent.style.setProperty('--path-framing', path + 'px')
    }
    setPathFraming(".js-framing-path", ".js-parent-framing")
-
 
    gsap.to(".framing", {
       scrollTrigger: {
@@ -238,18 +280,8 @@ window.addEventListener('load', (event) => {
          end: `100% ${VH - 80}`,
          pin: ".services__enum",
          scrub: 0,
-         // markers: {
-         //    startColor: "blue",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
       }
    })
-
-
-
 
    const DECISIONS_BODY = document.querySelector('.js-decisions-body');
 
@@ -261,13 +293,6 @@ window.addEventListener('load', (event) => {
          end: () => DECISIONS_BODY.offsetWidth - CW + "px",
          pin: true,
          scrub: 0,
-         // markers: {
-         //    startColor: "blue",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
       }
    })
 

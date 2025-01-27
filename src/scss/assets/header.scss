@@ -1,24 +1,39 @@
 @use '../assets/variablesSCSS.scss' as *;
 
-.header {
+.header__wrapper {
 
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 10;
+
+   .scroll-header & {
+      animation: headerScroll 0.5s forwards;
+   }
+}
+
+@keyframes headerScroll {
+   from {
+      transform: translateY(-100%);
+   }
+
+   to {
+      transform: translateY(0);
+   }
+}
+
+.header {
    padding: 22px 0;
    background: rgba(43, 41, 41, 0.24);
    backdrop-filter: blur(40px);
-
-   &__wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-   }
 
    &__container {}
 
    &__body {
       display: flex;
       justify-content: space-between;
+      gap: 4px;
 
       &>* {
          display: flex;
@@ -36,8 +51,6 @@
    }
 
    &__logo {
-
-
       a {
          display: flex;
          align-items: center;
@@ -47,6 +60,23 @@
       svg {
          max-height: 19px;
          max-width: 138px;
+         width: 100%;
+      }
+
+      @media (max-width:1023.98px) {
+         ._touch.scroll-header & {
+            .header__logo-full {
+               display: none;
+            }
+
+            .header__logo-short {
+               display: block;
+            }
+         }
+      }
+
+      .header__logo-short {
+         display: none;
       }
    }
 

@@ -9,16 +9,18 @@
 
    <div class="wrapper">
 
-      <div class="header__wrapper">
-         @@include('html/Baner/Baner.html',{})
-         @@include('html/2_header.html',{})
-      </div>
-
       <div id="scroll">
-
          <div id="content">
 
             <div class="main">
+
+               <div class="header__wrapper">
+                  <div class="js-header__wrapper">
+                     @@include('html/Baner/Baner.html',{})
+                     @@include('html/2_header.html',{})
+                  </div>
+               </div>
+
 
                @@include('html/First/First.html',{})
                @@include('html/Case/Case.html',{})
@@ -31,15 +33,19 @@
 
             </div>
 
-
             @@include('html/4_footer.html',{})
 
          </div>
-
       </div>
+
    </div>
 
    @@include('html/Loader/Loader.html',{})
+   @@include('html/Mobile_Menu/Mobile_Menu.html',{})
+
+   <script>
+      if (history.scrollRestoration) { history.scrollRestoration = "manual" }
+   </script>
 
    @@include('html/3_scripts.html',{ swiper: false, })
 

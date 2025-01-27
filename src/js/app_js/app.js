@@ -1,7 +1,6 @@
 "use strict"
 
 // window.addEventListener('load', (event) => {});
-window.scrollBy(0, 0);
 // desktop or mobile (mouse or touchscreen)
 const isMobile = {
    Android: function () { return navigator.userAgent.match(/Android/i) },
@@ -25,7 +24,10 @@ const HEADER = document.getElementById('header');
 const VW = window.innerWidth;
 const VH = window.innerHeight;
 const CW = document.querySelector('[class*="__container"]').offsetWidth;
-
+const BANER = document.querySelector('.baner');
+const HEADER_WRAPPER = document.querySelector('.header__wrapper');
+const WRAPPER = document.querySelector('.wrapper');
+const CONTENT = document.querySelector('#content');
 
 function throttle(callee, timeout) {
    let timer = null;
@@ -56,21 +58,31 @@ function addHeightVariable() {
 }
 addHeightVariable();
 
-// function setCW() {
-//    document.body.style.setProperty('--CW', CW + "px")
-// }
-// setCW();
+function openMenuMobile(open) {
+   if (typeof open === 'boolean') {
+      document.body.classList.toggle('mobile-menu-open', open);
+      return;
+   }
+   document.body.classList.toggle('mobile-menu-open');
+}
 
 // ** ======================= RESIZE ======================  ** //
 window.addEventListener('resize', () => {
    addHeightVariable();
-   setCW()
 })
 
 
 // ** ======================= CLICK ======================  ** //
 document.documentElement.addEventListener("click", (event) => {
-
+   if (event.target.closest('.baner__close')) { BANER.remove() };
+   if (event.target.closest('.burger')) {
+      openMenuMobile();
+      if (!isPC) {
+         document.body.classList.contains('mobile-menu-open') ?
+            WRAPPER.prepend(HEADER_WRAPPER) :
+            CONTENT.prepend(HEADER_WRAPPER)
+      }
+   };
 })
 
 

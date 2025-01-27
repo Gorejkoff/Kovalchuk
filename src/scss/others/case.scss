@@ -20,9 +20,11 @@
    }
 
    &__text {
+      position: relative;
+      z-index: 2;
+      transform: translateZ(-2px);
       width: 100vw;
       display: flex;
-
       font-weight: 500;
       font-size: 88px;
       line-height: 100%;
@@ -39,6 +41,8 @@
    }
 
    &__button {
+      position: relative;
+      z-index: 3;
       display: flex;
       justify-content: center;
    }
