@@ -153,5 +153,18 @@ window.addEventListener('load', (event) => {
       })
    }
 
+
+
+   document.body.addEventListener('click', (event) => {
+      if (event.target.closest('[href^="#"]')) {
+         event.preventDefault();
+         let getName = event.target.closest('[href^="#"]').getAttribute('href');
+         document.documentElement.style.scrollBehavior = "smooth";
+         smoother.scrollTo(getName);
+         setTimeout(() => { document.documentElement.style.scrollBehavior = "auto"; }, 1000)
+      }
+   })
+
+
 });  // end 'load'
 

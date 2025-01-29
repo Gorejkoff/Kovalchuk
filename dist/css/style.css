@@ -635,7 +635,11 @@ body {
   grid-column: span 2;
 }
 
+.footer__up a,
 .footer__up button {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
   margin-left: auto;
 }
 

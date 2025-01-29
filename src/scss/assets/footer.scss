@@ -49,7 +49,10 @@
    }
 
    &__up {
+
+      a,
       button {
+         max-width: max-content;
          margin-left: auto;
       }
 
