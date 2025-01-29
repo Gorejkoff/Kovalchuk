@@ -9,14 +9,17 @@
    }
 
    &__baner {
-      padding-top: 40px;
-      padding-left: 40px;
-      padding-right: 40px;
+      padding: 15px 15px 0;
       position: relative;
-      min-height: 488px;
+      min-height: 100vw;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      @media (min-width:768px) {
+         min-height: 488px;
+         padding: 40px 40px 0;
+      }
    }
 
    &__background {
@@ -36,9 +39,17 @@
       align-items: flex-end;
       justify-content: space-between;
       font-weight: 500;
-      font-size: 92px;
+      font-size: 36px;
       line-height: 87%;
       color: #fff;
+
+      @media (min-width:768px) {
+         font-size: 65px;
+      }
+
+      @media (min-width:992px) {
+         font-size: 92px;
+      }
 
       img {
          width: min(100px, 7vw);
@@ -46,11 +57,18 @@
    }
 
    &__content {
-      padding: 0 40px 60px;
+      padding: 0 15px 30px;
       display: flex;
+      flex-direction: column;
+      gap: 10px;
       justify-content: space-between;
       background: #141214;
       border-radius: 0 0 16px 16px;
+
+      @media (min-width:768px) {
+         padding: 0 40px 60px;
+         flex-direction: row;
+      }
    }
 
 
@@ -60,7 +78,6 @@
 
       p {
          margin-bottom: 24px;
-         font-weight: 500;
          font-size: 14px;
          line-height: 129%;
          color: #64616e;
@@ -73,24 +90,34 @@
       li {
          list-style: disc;
          margin-bottom: 16px;
-         font-weight: 500;
-         font-size: 24px;
+         font-size: 18px;
          line-height: 133%;
          color: #fff;
+
+         @media (min-width:992px) {
+            font-size: 24px;
+         }
       }
 
    }
 
    &__description {
-      padding-top: 40px;
-      flex: 0 1 344px;
+      padding-top: 15px;
+
+      @media (min-width:992px) {
+         padding-top: 40px;
+         flex: 0 1 344px;
+      }
 
       p {
-         margin-bottom: 40px;
-         font-weight: 500;
+         margin-bottom: 15px;
          font-size: 14px;
          line-height: 143%;
          color: #64616e;
+
+         @media (min-width:768px) {
+            margin-bottom: 40px;
+         }
       }
    }
 }

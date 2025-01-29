@@ -25,10 +25,17 @@
       transform: translateZ(-2px);
       width: 100vw;
       display: flex;
-      font-weight: 500;
-      font-size: 88px;
+      font-size: 40px;
       line-height: 100%;
       color: #fff;
+
+      @media (min-width:768px) {
+         font-size: 60px;
+      }
+
+      @media (min-width:1024px) {
+         font-size: 88px;
+      }
    }
 
    &__text-block {
@@ -38,9 +45,16 @@
 
    &__text-table {
       display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      @media (min-width:768px) {
+         flex-direction: row;
+      }
    }
 
    &__button {
+      margin-top: 30px;
       position: relative;
       z-index: 3;
       display: flex;

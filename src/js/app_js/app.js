@@ -54,7 +54,7 @@ textWpapSpan(".js-text-wrap")
 
 /* запись переменных высоты элементов */
 function addHeightVariable() {
-   document.body.style.setProperty('--height-header', `${HEADER.offsetHeight}px`)
+   if (HEADER) document.body.style.setProperty('--height-header', `${HEADER.offsetHeight}px`)
 }
 addHeightVariable();
 

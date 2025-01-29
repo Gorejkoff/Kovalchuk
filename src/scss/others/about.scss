@@ -1,43 +1,74 @@
 .about {
-   margin-top: 64px;
+   margin-top: 40px;
+
+   @media (min-width:768px) {
+      margin-top: 64px;
+   }
 
    &__container {}
 
    &__body {
-      margin-top: 80px;
+      margin-top: 30px;
+
+      @media (min-width:768px) {
+         margin-top: 80px;
+      }
    }
 
    &__text {
       margin-bottom: 24px;
       font-weight: 500;
-      font-size: 64px;
+      font-size: 28px;
       color: #fff;
+      max-width: 1064px;
 
-      // background: linear-gradient(180deg, #4c4a54 0%, #27252b 100%);
-      // background-clip: text;
-      // -webkit-background-clip: text;
-      // -webkit-text-fill-color: transparent;
+      span {
+         background: linear-gradient(180deg, #4c4a54 0%, #27252b 100%);
+         background-clip: text;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+      }
+
+      @media (min-width:768px) {
+         font-size: 40px;
+      }
+
+      @media (min-width:1024px) {
+         font-size: 64px
+      }
    }
 
    &__cards {
       display: flex;
       justify-content: flex-end;
-      gap: 32px;
+      gap: 10px;
+
+      @media (min-width:992px) {
+         gap: 32px;
+      }
    }
 
    &__card {
       position: relative;
-      padding: 32px;
+      padding: 15px;
       width: 100%;
-      max-width: 400px;
-      min-height: 320px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 20px;
       border-radius: 24px;
       backdrop-filter: blur(40px);
       background: rgba(31, 30, 31, 0.6);
       overflow: hidden;
+
+      @media (min-width:768px) {
+         min-height: 320px;
+         padding: 32px;
+      }
+
+      @media (min-width:992px) {
+         max-width: 400px;
+      }
 
       P:last-child {
          color: #3c3a43;
@@ -52,21 +83,32 @@
    }
 
    &__card-header {
-      width: 50%;
+      padding-top: 60%;
       font-family: var(--second-family);
       font-weight: 500;
-      font-size: 32px;
+      font-size: 20px;
       line-height: 100%;
       color: #fff;
+
+      @media (min-width:768px) {
+         padding-top: 0;
+         width: 50%;
+         font-size: 32px;
+
+      }
    }
 
    &__card-footer {
-      align-self: flex-end;
-      width: 60%;
       font-weight: 500;
       font-size: 16px;
       line-height: 112%;
-      text-align: right;
+      text-align: center;
       color: #fff;
+
+      @media (min-width:768px) {
+         align-self: flex-end;
+         text-align: right;
+         width: 60%;
+      }
    }
 }

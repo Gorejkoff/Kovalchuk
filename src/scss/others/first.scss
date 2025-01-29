@@ -27,12 +27,17 @@
    }
 
    &__gallery-image {
+      --size: 1vw;
       position: absolute;
       transform: translate(-50%, -50%);
       z-index: -2;
       display: flex;
       align-items: center;
       animation: image_scale 1s 3s forwards;
+
+      @media (orientation: portrait) {
+         --size: 1vh;
+      }
    }
 
    &__gallery-image-1 {
@@ -40,7 +45,8 @@
       left: 16%;
 
       img {
-         width: 20vw;
+         // width: 20vw;
+         width: calc(var(--size) * 20);
       }
    }
 
@@ -49,7 +55,8 @@
       left: 33%;
 
       img {
-         width: 24.23vw;
+         // width: 24.23vw;
+         width: calc(var(--size) * 24.23);
       }
    }
 
@@ -58,7 +65,8 @@
       left: 67%;
 
       img {
-         width: 31vw;
+         // width: 31vw;
+         width: calc(var(--size) * 31);
       }
    }
 
@@ -67,7 +75,8 @@
       left: 95%;
 
       img {
-         width: 17.78vw;
+         // width: 17.78vw;
+         width: calc(var(--size) * 17.78);
       }
    }
 
@@ -76,7 +85,8 @@
       left: 3.8%;
 
       img {
-         width: 22.5vw;
+         // width: 22.5vw;
+         width: calc(var(--size) * 22.5);
       }
    }
 
@@ -85,7 +95,8 @@
       left: 32.6%;
 
       img {
-         width: 29.72vw;
+         // width: 29.72vw;
+         width: calc(var(--size) * 29.72);
       }
    }
 
@@ -94,7 +105,8 @@
       left: 65%;
 
       img {
-         width: 22.57vw;
+         // width: 22.57vw;
+         width: calc(var(--size) * 22.57);
       }
    }
 
@@ -103,7 +115,8 @@
       left: 92%;
 
       img {
-         width: 22.57vw;
+         // width: 22.57vw;
+         width: calc(var(--size) * 22.57);
       }
    }
 
@@ -113,11 +126,15 @@
       position: relative;
       font-family: var(--second-family);
       font-weight: 500;
-      font-size: min(100px, 7.19vw);
+      font-size: 6vw;
       line-height: 86%;
       letter-spacing: 0.02em;
       color: #fff;
       z-index: 2;
+
+      @media (min-width:768px) {
+         font-size: min(100px, 7.19vw);
+      }
 
       p {
          background: linear-gradient(180deg, #4c4a54 0%, #27252b 100%);

@@ -54,7 +54,7 @@ textWpapSpan(".js-text-wrap")
 
 /* запись переменных высоты элементов */
 function addHeightVariable() {
-   document.body.style.setProperty('--height-header', `${HEADER.offsetHeight}px`)
+   if (HEADER) document.body.style.setProperty('--height-header', `${HEADER.offsetHeight}px`)
 }
 addHeightVariable();
 
@@ -177,9 +177,6 @@ window.addEventListener('load', (event) => {
    })
 
 
-
-
-
    gsap.to('.header__wrapper', {
       scrollTrigger: {
          trigger: ".header__wrapper",
@@ -188,10 +185,7 @@ window.addEventListener('load', (event) => {
          onEnter: () => headerMoveUp(),
          onEnterBack: () => headerMoveBack(),
       }
-
    })
-
-
 
    const FIRST = document.querySelector('.first');
    let xTo = gsap.quickTo(".first__gallery", "x", { duration: 1 });
@@ -271,43 +265,42 @@ window.addEventListener('load', (event) => {
       }
    })
 
-   const ENUM_HEIGHT = document.querySelector('.services__enum').offsetHeight;
+   if (MIN1024.matches) {
+      gsap.to(".services__title", {
+         scrollTrigger: {
+            trigger: ".services__body",
+            start: `0 50`,
+            end: `100% 50%`,
+            pin: ".services__title",
+            pinSpacing: false,
+            scrub: 0,
+         }
+      })
 
-   gsap.to(".services__enum", {
-      scrollTrigger: {
-         trigger: ".services__certificates",
-         start: `${ENUM_HEIGHT + 80} 100%`,
-         end: `100% ${VH - 80}`,
-         pin: ".services__enum",
-         scrub: 0,
-      }
-   })
+      const ENUM_HEIGHT = document.querySelector('.services__enum').offsetHeight;
+      gsap.to(".services__enum", {
+         scrollTrigger: {
+            trigger: ".services__certificates",
+            start: `${ENUM_HEIGHT + 80} 100%`,
+            end: `100% ${VH - 80}`,
+            pin: ".services__enum",
+            scrub: 0,
+         }
+      })
 
-   const DECISIONS_BODY = document.querySelector('.js-decisions-body');
+      const DECISIONS_BODY = document.querySelector('.js-decisions-body');
 
-   gsap.to(".js-decisions-body", {
-      x: `-${DECISIONS_BODY.offsetWidth - VW}px`,
-      scrollTrigger: {
-         trigger: ".js-decisions-trigger",
-         start: "0% 0%",
-         end: () => DECISIONS_BODY.offsetWidth - CW + "px",
-         pin: true,
-         scrub: 0,
-      }
-   })
-
-
-
-
-
-
-
-
-
-
-
-
-
+      gsap.to(".js-decisions-body", {
+         x: `-${DECISIONS_BODY.offsetWidth - VW}px`,
+         scrollTrigger: {
+            trigger: ".js-decisions-trigger",
+            start: "0% 0%",
+            end: () => DECISIONS_BODY.offsetWidth - CW + "px",
+            pin: true,
+            scrub: 0,
+         }
+      })
+   }
 
 });  // end 'load'
 

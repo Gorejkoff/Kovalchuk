@@ -8,7 +8,15 @@
    &__body {
       padding-bottom: 40px;
       display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
+      column-gap: 10px;
+      row-gap: 40px;
+      grid-template-columns: 1fr 1fr;
+
+      @media (min-width:992px) {
+         grid-template-columns: 1fr 1fr 1fr 1fr;
+         row-gap: 0;
+         column-gap: 20px;
+      }
    }
 
    &__icon {
@@ -17,21 +25,36 @@
       }
 
       img {
+         width: 100%;
          max-width: 138px;
       }
 
+      @media (min-width:992px) {
+         order: 1;
+      }
    }
 
    &__nav {
-      margin-bottom: 74px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       gap: 32px;
+      grid-column: span 2;
+
+      @media (min-width:992px) {
+         margin-bottom: 74px;
+         order: 2;
+      }
    }
 
    &__up {
       button {
          margin-left: auto;
+      }
+
+      @media (min-width:992px) {
+         order: 3;
       }
    }
 
@@ -44,10 +67,19 @@
       p:first-child {
          margin-bottom: 32px;
       }
+
+      @media (min-width:992px) {
+         order: 4;
+      }
    }
 
    &__services {
-      margin-bottom: 48px;
+      grid-column: span 2;
+
+      @media (min-width:992px) {
+         margin-bottom: 48px;
+         order: 5;
+      }
 
       p {
          margin-bottom: 32px;
@@ -79,6 +111,10 @@
    }
 
    &__links {
+      @media (min-width:992px) {
+         order: 6;
+      }
+
       li {
          list-style: none;
          margin-bottom: 16px;
@@ -86,25 +122,40 @@
 
       a {
          font-weight: 500;
-         font-size: 24px;
+         font-size: 18px;
          line-height: 117%;
          letter-spacing: 0.01em;
          color: #fff;
+
+         @media (min-width:768px) {
+            font-size: 24px;
+         }
       }
    }
 
    &__under {
-      padding-top: 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+
+      @media (min-width:992px) {
+         grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+   }
+
+   &__under-cell {
+      padding-top: 24px;
       font-weight: 500;
       font-size: 12px;
       line-height: 117%;
       color: rgba(255, 255, 255, 0.4);
 
-      &.under-group {
+      /*  &.under-group {
+         grid-column: span 2;
          display: grid;
          grid-template-columns: 1fr 1fr;
          gap: 16px;
-      }
+      } */
    }
 }
