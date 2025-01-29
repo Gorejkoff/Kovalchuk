@@ -160,6 +160,7 @@ window.addEventListener('load', (event) => {
          event.preventDefault();
          let getName = event.target.closest('[href^="#"]').getAttribute('href');
          document.documentElement.style.scrollBehavior = "smooth";
+         openMenuMobile(false);
          smoother.scrollTo(getName);
          setTimeout(() => { document.documentElement.style.scrollBehavior = "auto"; }, 1000)
       }
