@@ -126,14 +126,14 @@
       position: relative;
       font-family: var(--second-family);
       font-weight: 500;
-      font-size: 6vw;
+      font-size: 13vw;
       line-height: 86%;
       letter-spacing: 0.02em;
       color: #fff;
       z-index: 2;
 
       @media (min-width:768px) {
-         font-size: min(100px, 7.19vw);
+         font-size: min(100px, 8vw);
       }
 
       p {

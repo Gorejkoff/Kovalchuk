@@ -10,7 +10,6 @@ function headerMoveBack() {
    CONTENT.prepend(HEADER_WRAPPER);
 }
 
-
 window.addEventListener('load', (event) => {
    window.scrollTo(0, 0);
 
@@ -18,7 +17,7 @@ window.addEventListener('load', (event) => {
    ScrollTrigger.config({ ignoreMobileResize: true });
    ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
 
-   const smoother = ScrollSmoother.create({
+   smoother = ScrollSmoother.create({
       wrapper: "#scroll",
       content: "#content",
       smooth: 2,

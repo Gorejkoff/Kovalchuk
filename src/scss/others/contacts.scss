@@ -67,7 +67,7 @@
       flex-direction: column;
       gap: 40px;
 
-      @media (min-width:1024px) {
+      @media (min-width:992px) {
          overflow: hidden;
          border-radius: 16px;
          flex-direction: row;
@@ -75,11 +75,15 @@
       }
 
       &>* {
-         min-height: max(300px, 50vw);
+         min-height: calc(85vw - 40px);
          overflow: hidden;
          border-radius: 16px;
 
-         @media (min-width:1024px) {
+         @media (min-width:768px) {
+            min-height: max(300px, 50vw);
+         }
+
+         @media (min-width:992px) {
             border-radius: 0;
             flex: 0 0 50%;
             min-height: min(550px, 38.1vw);
@@ -89,11 +93,48 @@
 
    &__map {
       position: relative;
-      padding: 30px;
+      padding: 3.9vw;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       background: linear-gradient(159deg, #363636 0%, rgba(37, 37, 37, 0.58) 100%);
+
+      @media (max-width:1249.98px) {
+         .nav-panel {
+            min-height: auto;
+            padding: 2px;
+
+            a {
+               padding: 0.4vw;
+            }
+
+            svg {
+               width: 1.6vw;
+               height: 1.6vw;
+            }
+         }
+      }
+
+      @media (max-width:991.98px) {
+         .nav-panel {
+            min-height: auto;
+            padding: 2px;
+
+            a {
+               padding: 0.78vw;
+            }
+
+            svg {
+               width: 3vw;
+               height: 3vw;
+            }
+         }
+      }
+
+      @media (min-width:768px) {
+         padding: 30px;
+      }
+
    }
 
 
@@ -101,10 +142,13 @@
       position: relative;
       z-index: 1;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 15px;
+      gap: 1.9vw;
+
+      @media (min-width:768px) {
+         gap: 15px;
+      }
    }
 
    &__map-group {
@@ -115,39 +159,44 @@
    }
 
    &__map-phone {
-      font-size: 20px;
+      font-size: 4vw;
       line-height: 100%;
       white-space: nowrap;
 
-      @media (min-width:768px) {
+      @media (min-width:992px) {
+         font-size: 2.3vw;
+      }
+
+      @media (min-width:1250px) {
          font-size: 29px;
       }
    }
 
    &__map-address {
       flex: 1 1 auto;
-      font-size: 18px;
+      font-size: 2.5vw;
       line-height: 108%;
-      max-width: 150px;
+      text-align: right;
+      max-width: 22vw;
 
-      @media (min-width:768px) {
-         text-align: right;
+      @media (min-width:992px) {
+         font-size: 1.76vw;
+      }
+
+      @media (min-width:1250px) {
+         max-width: 150px;
          font-size: 22px;
       }
    }
 
    &__map-bg {
       position: absolute;
-      top: 80%;
+      top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
       height: 100%;
       object-fit: cover;
-
-      @media (min-width:1024px) {
-         top: 50%;
-      }
    }
 
    &__link {
@@ -157,8 +206,8 @@
       a {
          display: inline-block;
          border-radius: 30px;
-         padding: 12px 14px 10px;
-         font-size: 14px;
+         padding: 8px 10px 6px;
+         font-size: 10px;
          text-align: center;
          line-height: 100%;
          color: #020102;
@@ -190,18 +239,13 @@
 
    &__consultation-header {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
       gap: 10px;
-
-      @media (min-width:400px) {
-         flex-direction: row;
-      }
    }
 
    &__consultation-title {
       max-width: 280px;
-      font-size: 24px;
+      font-size: 20px;
       line-height: 112%;
 
       @media (min-width:768px) {
@@ -224,20 +268,19 @@
 
    &__consultation-text {
       max-width: 216px;
-      font-size: 13px;
+      font-size: 10px;
       line-height: 114%;
       color: #64616e;
+
+      @media (min-width:768px) {
+         font-size: 13px;
+      }
    }
 
    &__consultation-footer {
       display: flex;
       gap: 10px;
-      flex-direction: column;
       align-items: center;
-
-      @media (min-width:400px) {
-         flex-direction: row;
-      }
 
       &>* {
          flex: 1 1 auto;
@@ -245,7 +288,7 @@
    }
 
    &__consultation-price {
-      font-size: 24px;
+      font-size: 20px;
       line-height: 112%;
 
       @media (min-width:768px) {

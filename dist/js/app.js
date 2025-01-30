@@ -20,6 +20,7 @@ const MIN1024 = window.matchMedia('(min-width: 1024px)');
 const MIN768 = window.matchMedia('(min-width: 768px)');
 
 // variables
+let smoother;
 const HEADER = document.getElementById('header');
 const VW = window.innerWidth;
 const VH = window.innerHeight;
@@ -60,10 +61,15 @@ addHeightVariable();
 
 function openMenuMobile(open) {
    if (typeof open === 'boolean') {
-      document.body.classList.toggle('mobile-menu-open', open);
-      return;
+      document.documentElement.classList.toggle('mobile-menu-open', open);
+   } else {
+      document.documentElement.classList.toggle('mobile-menu-open');
    }
-   document.body.classList.toggle('mobile-menu-open');
+   if (document.documentElement.classList.contains('mobile-menu-open')) {
+      smoother.paused(true)
+   } else {
+      smoother.paused(false)
+   }
 }
 
 // ** ======================= RESIZE ======================  ** //
@@ -77,10 +83,10 @@ document.documentElement.addEventListener("click", (event) => {
    if (event.target.closest('.baner__close')) { BANER.remove() };
    if (event.target.closest('.burger')) {
       openMenuMobile();
-      if (!isPC) {
-         document.body.classList.contains('mobile-menu-open') ?
+      if (!isPC && !document.body.classList.contains('scroll-header')) {
+         document.documentElement.classList.contains('mobile-menu-open') ?
             WRAPPER.prepend(HEADER_WRAPPER) :
-            CONTENT.prepend(HEADER_WRAPPER)
+            CONTENT.prepend(HEADER_WRAPPER);
       }
    };
 })
@@ -159,7 +165,6 @@ function headerMoveBack() {
    CONTENT.prepend(HEADER_WRAPPER);
 }
 
-
 window.addEventListener('load', (event) => {
    window.scrollTo(0, 0);
 
@@ -167,7 +172,7 @@ window.addEventListener('load', (event) => {
    ScrollTrigger.config({ ignoreMobileResize: true });
    ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
 
-   const smoother = ScrollSmoother.create({
+   smoother = ScrollSmoother.create({
       wrapper: "#scroll",
       content: "#content",
       smooth: 2,

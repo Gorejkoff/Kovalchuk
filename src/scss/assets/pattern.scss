@@ -430,6 +430,10 @@ body {
 .mobile-menu-open {
    overflow: hidden;
 
+   body {
+      overflow: hidden;
+   }
+
    .mombile-menu {
       top: 0;
    }

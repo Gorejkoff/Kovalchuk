@@ -40,18 +40,21 @@
 
    &__cards {
       display: flex;
-      justify-content: flex-end;
-      gap: 10px;
+      flex-direction: column;
+      gap: 32px;
 
-      @media (min-width:992px) {
-         gap: 32px;
+      @media (min-width:768px) {
+         flex-direction: row;
+         justify-content: flex-end;
       }
    }
 
    &__card {
+      --size: calc(80vw - 40px);
       position: relative;
       padding: 15px;
       width: 100%;
+      min-height: var(--size);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -62,13 +65,11 @@
       overflow: hidden;
 
       @media (min-width:768px) {
-         min-height: 320px;
          padding: 32px;
-      }
-
-      @media (min-width:992px) {
+         min-height: 320px;
          max-width: 400px;
       }
+
 
       P:last-child {
          color: #3c3a43;
@@ -83,32 +84,27 @@
    }
 
    &__card-header {
-      padding-top: 60%;
       font-family: var(--second-family);
-      font-weight: 500;
-      font-size: 20px;
+      font-size: calc(var(--size) * 0.08);
       line-height: 100%;
       color: #fff;
+      width: 50%;
 
       @media (min-width:768px) {
-         padding-top: 0;
-         width: 50%;
          font-size: 32px;
-
       }
    }
 
    &__card-footer {
-      font-weight: 500;
-      font-size: 16px;
+      align-self: flex-end;
+      text-align: right;
+      width: 60%;
+      font-size: calc(var(--size) * 0.04);
       line-height: 112%;
-      text-align: center;
       color: #fff;
 
       @media (min-width:768px) {
-         align-self: flex-end;
-         text-align: right;
-         width: 60%;
+         font-size: 16px;
       }
    }
 }
