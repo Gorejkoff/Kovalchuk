@@ -164,8 +164,8 @@ window.addEventListener('load', (event) => {
    window.scrollTo(0, 0);
 
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
-   // ScrollTrigger.config({ ignoreMobileResize: true });
-   // ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
+   ScrollTrigger.config({ ignoreMobileResize: true });
+   ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
 
    const smoother = ScrollSmoother.create({
       wrapper: "#scroll",
@@ -173,7 +173,7 @@ window.addEventListener('load', (event) => {
       smooth: 4,
       smoothTouch: true,
       effects: true,
-      // normalizeScroll: true
+      normalizeScroll: true
    })
 
 

@@ -31,6 +31,10 @@ body {
    flex: 1 1 auto;
 }
 
+#content {
+   will-change: transform;
+}
+
 // .shadow {
 //    box-shadow: -3px 0 16px 0 rgba(51, 51, 51, 0.3);
 // }

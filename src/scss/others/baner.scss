@@ -32,13 +32,34 @@
       }
    }
 
-   &__title {}
-
-   &__text {
-      opacity: 0.6;
+   &__title {
+      display: flex;
+      align-items: center;
    }
 
-   &__link {}
+   &__text {
+      display: none;
+      opacity: 0.6;
+
+      @media (min-width:1024px) {
+         display: block;
+      }
+   }
+
+   &__link-pc {
+      display: none;
+
+      @media (min-width:1024px) {
+         display: block;
+      }
+
+   }
+
+   &__link-mobile {
+      @media (min-width:1024px) {
+         display: none;
+      }
+   }
 
    &__close {
       margin-left: auto;

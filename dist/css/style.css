@@ -203,6 +203,10 @@ body {
           flex: 1 1 auto;
 }
 
+#content {
+  will-change: transform;
+}
+
 [class*=__container] {
   padding-left: var(--padding-container);
   padding-right: var(--padding-container);
@@ -580,10 +584,6 @@ body {
   width: 100%;
 }
 
-.header__logo .header__logo-short {
-  display: none;
-}
-
 .header__nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -763,8 +763,22 @@ body {
   max-width: 12px;
 }
 
+.baner__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .baner__text {
+  display: none;
   opacity: 0.6;
+}
+
+.baner__link-pc {
+  display: none;
 }
 
 .baner__close {
@@ -967,7 +981,7 @@ body {
 }
 
 .case__margin-anhor {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .case__text {
@@ -979,7 +993,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 40px;
+  font-size: 20px;
   line-height: 100%;
   color: #fff;
 }
@@ -993,11 +1007,13 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   gap: 20px;
+}
+
+.case__text-table > * {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(50% - 10px);
+          flex: 0 0 calc(50% - 10px);
 }
 
 .case__button {
@@ -2118,13 +2134,6 @@ body {
     font-size: 60px;
   }
 
-  .case__text-table {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-
   .contacts__subscription {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -2399,6 +2408,22 @@ body {
     display: none !important;
   }
 
+  .baner__text {
+    display: block;
+  }
+
+  .baner__link-pc {
+    display: block;
+  }
+
+  .baner__link-mobile {
+    display: none;
+  }
+
+  .case__margin-anhor {
+    margin-bottom: 80px;
+  }
+
   .case__text {
     font-size: 88px;
   }
@@ -2544,14 +2569,6 @@ body {
 }
 
 @media (max-width: 1023.98px) {
-  ._touch.scroll-header .header__logo .header__logo-full {
-    display: none;
-  }
-
-  ._touch.scroll-header .header__logo .header__logo-short {
-    display: block;
-  }
-
   .decisions__block {
     margin-bottom: 40px;
   }

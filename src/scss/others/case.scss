@@ -16,7 +16,11 @@
    &__sell {}
 
    &__margin-anhor {
-      margin-bottom: 80px;
+      margin-bottom: 40px;
+
+      @media (min-width:1024px) {
+         margin-bottom: 80px;
+      }
    }
 
    &__text {
@@ -25,7 +29,7 @@
       transform: translateZ(-2px);
       width: 100vw;
       display: flex;
-      font-size: 40px;
+      font-size: 20px;
       line-height: 100%;
       color: #fff;
 
@@ -45,11 +49,14 @@
 
    &__text-table {
       display: flex;
-      flex-direction: column;
+      // flex-direction: column;
       gap: 20px;
 
-      @media (min-width:768px) {
-         flex-direction: row;
+      // @media (min-width:768px) {
+      //    flex-direction: row;
+      // }
+      &>* {
+         flex: 0 0 calc(50% - 10px);
       }
    }
 
