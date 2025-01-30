@@ -21,24 +21,22 @@
    }
 
    &__body {
+      padding: 0 20px;
       margin-top: 24px;
+      gap: 5vw;
 
       @media (min-width:1024px) {
          display: flex;
+         padding: 0 calc((100vw - var(--container-width)) / 2);
       }
    }
 
    &__block {
-      padding: 0 20px;
       display: flex;
       justify-content: center;
 
       @media (max-width:1023.98px) {
          margin-bottom: 40px;
-      }
-
-      @media (min-width:1024px) {
-         padding: 0 calc((100vw - var(--container-width)) / 2);
       }
    }
 
@@ -115,8 +113,8 @@
    &__image {
 
       @media (min-width:1024px) {
-         max-width: calc(var(--container-width) * 0.75);
-         width: 100vw;
+         // max-width: calc(var(--container-width) * 0.75);
+         // width: 100vw;
       }
 
       img {

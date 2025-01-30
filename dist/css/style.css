@@ -1843,11 +1843,12 @@ body {
 }
 
 .decisions__body {
+  padding: 0 20px;
   margin-top: 24px;
+  gap: 5vw;
 }
 
 .decisions__block {
-  padding: 0 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2486,9 +2487,6 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-  }
-
-  .decisions__block {
     padding: 0 calc((100vw - var(--container-width)) / 2);
   }
 
@@ -2514,11 +2512,6 @@ body {
 
   .decisions__text {
     font-size: 40px;
-  }
-
-  .decisions__image {
-    max-width: calc(var(--container-width) * 0.75);
-    width: 100vw;
   }
 
   .decisions__image img {

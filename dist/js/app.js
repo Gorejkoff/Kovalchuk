@@ -170,7 +170,7 @@ window.addEventListener('load', (event) => {
    const smoother = ScrollSmoother.create({
       wrapper: "#scroll",
       content: "#content",
-      smooth: 4,
+      smooth: 2,
       smoothTouch: true,
       effects: true,
       normalizeScroll: true
