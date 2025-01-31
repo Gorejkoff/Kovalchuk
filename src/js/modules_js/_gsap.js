@@ -115,19 +115,29 @@ window.addEventListener('load', (event) => {
       }
    })
 
+
    if (MIN1024.matches) {
+      const services_title = document.querySelector('.services__title')
+      const ENUM_HEIGHT = document.querySelector('.services__enum').offsetHeight;
+
       gsap.to(".services__title", {
          scrollTrigger: {
             trigger: ".services__body",
-            start: `0 50`,
-            end: `100% 50%`,
+            start: `${services_title.offsetTop} ${HEADER_WRAPPER.scrollHeight}`,
+            end: `100% 100%`,
             pin: ".services__title",
             pinSpacing: false,
             scrub: 0,
+            // markers: {
+            //    startColor: "green",
+            //    endColor: "red",
+            //    fontSize: "40px",
+            //    fontWeight: "bold",
+            //    indent: 20
+            // }
          }
       })
 
-      const ENUM_HEIGHT = document.querySelector('.services__enum').offsetHeight;
       gsap.to(".services__enum", {
          scrollTrigger: {
             trigger: ".services__certificates",
@@ -135,6 +145,13 @@ window.addEventListener('load', (event) => {
             end: `100% ${VH - 80}`,
             pin: ".services__enum",
             scrub: 0,
+            // markers: {
+            //    startColor: "green",
+            //    endColor: "red",
+            //    fontSize: "40px",
+            //    fontWeight: "bold",
+            //    indent: 20
+            // }
          }
       })
 

@@ -1,5 +1,5 @@
 .mombile-menu {
-   padding-top: var(--height-header);
+   padding-top: calc(var(--height-header) + 40px);
    padding-bottom: 30px;
    position: fixed;
    top: -120%;
@@ -38,7 +38,7 @@
       }
 
       a {
-         padding: 12px;
+         padding: 12px 0;
          min-height: 72px;
          width: 100%;
          font-size: 18px;
@@ -52,23 +52,28 @@
 
 
    .header__group {
-      margin-top: 24px;
+      margin-top: 40px;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      // flex-direction: column;
       align-items: center;
+      justify-content: space-between;
+      row-gap: 40px;
    }
 
 
    .phone {
-      margin-top: 24px;
-      font-size: 20px;
+      // margin-top: 24px;
+      font-size: 18px;
    }
 
 
    .applying {
-      margin-top: 24px;
+      // margin-top: 24px;
+      width: 100%;
 
       a {
+         width: 100%;
          font-size: 16px;
       }
    }

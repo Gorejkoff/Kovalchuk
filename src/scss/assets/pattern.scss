@@ -10,7 +10,6 @@ body {
    --max-width-container: #{$max-width-container};
    --max-width-big-container: #{$max-width-big-container};
    scrollbar-gutter: stable;
-
    // @media (min-width:768px) {
    //    --padding-container: #{$padding-tablet};
    // }
@@ -313,7 +312,7 @@ body {
 
 .applying {
    a {
-      padding: 9px 12px;
+      padding: 10px 12px 8px;
       display: inline-block;
       font-size: 12px;
       text-align: center;
@@ -337,11 +336,11 @@ body {
 }
 
 .button {
-   padding: 14px 16px;
+   padding: 12px 10px 11px;
    display: flex;
    align-items: center;
    font-weight: 500;
-   font-size: 18px;
+   font-size: 12px;
    text-align: center;
    line-height: 100%;
    color: #020102;
@@ -350,7 +349,7 @@ body {
    max-width: max-content;
 
    @media (min-width:768px) {
-      padding: 18px 20px;
+      padding: 19px 20px 17px;
       font-size: 20px;
    }
 }

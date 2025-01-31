@@ -1,11 +1,18 @@
+@use "../assets/mixin.scss" as *;
+@use "../assets/variablesSCSS.scss" as *;
+
 .contacts {
-   margin-top: 40px;
+   margin-top: 80px;
+
+   @media (min-width:1024px) {
+      margin-top: 160px;
+   }
 
    &__container {}
 
    &__subscription {
       margin-top: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 10px;
       display: flex;
       flex-direction: column;
       border-radius: 16px;
@@ -14,6 +21,10 @@
 
       @media (min-width:768px) {
          flex-direction: row;
+      }
+
+      @media (min-width:1024px) {
+         margin-bottom: 32px;
       }
    }
 
@@ -31,6 +42,14 @@
       font-size: 20px;
       line-height: 110%;
       color: #fff;
+
+      p {
+         max-width: 615px;
+      }
+
+      span {
+         opacity: 0.4;
+      }
 
       @media (min-width:768px) {
          margin-bottom: 100px;
@@ -54,7 +73,7 @@
       img {
          position: absolute;
          top: 0;
-         left: 0;
+         right: 0;
          margin-left: -5%;
          max-width: 105%;
          height: 100%;
@@ -65,39 +84,38 @@
    &__body {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 10px;
 
-      @media (min-width:992px) {
-         overflow: hidden;
-         border-radius: 16px;
+
+      @media (min-width:1024px) {
          flex-direction: row;
-         gap: 0;
       }
 
+      @include sizeMin1024(gap, 32);
+
       &>* {
-         min-height: calc(85vw - 40px);
-         overflow: hidden;
          border-radius: 16px;
+         overflow: hidden;
+         min-height: min(592px, calc((100vw - $padding-desktop * 2) * 0.86));
 
-         @media (min-width:768px) {
-            min-height: max(300px, 50vw);
-         }
+         @include sizeMin(padding, 32);
 
-         @media (min-width:992px) {
-            border-radius: 0;
-            flex: 0 0 50%;
-            min-height: min(550px, 38.1vw);
+         @include sizeMin1024(padding, 32);
+
+         @media (min-width:1024px) {
+            min-height: min(592px, 44.849vw);
+
          }
       }
    }
 
    &__map {
       position: relative;
-      padding: 3.9vw;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       background: linear-gradient(159deg, #363636 0%, rgba(37, 37, 37, 0.58) 100%);
+
 
       @media (max-width:1249.98px) {
          .nav-panel {
@@ -131,8 +149,8 @@
          }
       }
 
-      @media (min-width:768px) {
-         padding: 30px;
+      @media (min-width:1024px) {
+         flex: 0 0 53.75%;
       }
 
    }
@@ -144,11 +162,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.9vw;
-
-      @media (min-width:768px) {
-         gap: 15px;
-      }
+      gap: 32px;
+      @include sizeMin(gap, 32);
+      @include sizeMin1024(gap, 32);
    }
 
    &__map-group {
@@ -159,34 +175,21 @@
    }
 
    &__map-phone {
-      font-size: 4vw;
       line-height: 100%;
       white-space: nowrap;
-
-      @media (min-width:992px) {
-         font-size: 2.3vw;
-      }
-
-      @media (min-width:1250px) {
-         font-size: 29px;
-      }
+      @include sizeMin(font-size, 32);
+      @include sizeMin1024(font-size, 32);
    }
 
    &__map-address {
       flex: 1 1 auto;
-      font-size: 2.5vw;
       line-height: 108%;
       text-align: right;
-      max-width: 22vw;
 
-      @media (min-width:992px) {
-         font-size: 1.76vw;
-      }
+      @include sizeMin(font-size, 24);
+      @include sizeMin1024(font-size, 24);
+      @include sizeMin1024(max-width, 150);
 
-      @media (min-width:1250px) {
-         max-width: 150px;
-         font-size: 22px;
-      }
    }
 
    &__map-bg {
@@ -206,16 +209,17 @@
       a {
          display: inline-block;
          border-radius: 30px;
-         padding: 8px 10px 6px;
-         font-size: 10px;
+         padding: 10px 12px 8px;
          text-align: center;
          line-height: 100%;
          color: #020102;
          background: #fff;
 
+         @include sizeMin(font-size, 20);
+         @include sizeMin1024(font-size, 20);
+
          @media (min-width:768px) {
-            padding: 17px 18px 15px;
-            font-size: 18px;
+            padding: 19px 20px 17px;
          }
 
          span {
@@ -225,32 +229,26 @@
    }
 
    &__consultation {
-      padding: 15px;
+      flex: 1 1 auto;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 24px;
       background-color: #1D1D1D;
-
-      @media (min-width:768px) {
-         padding: 30px;
-      }
    }
 
    &__consultation-header {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
+      gap: 32px;
    }
 
    &__consultation-title {
-      max-width: 280px;
-      font-size: 20px;
       line-height: 112%;
-
-      @media (min-width:768px) {
-         font-size: 29px;
-      }
+      @include sizeMin(max-width, 300);
+      @include sizeMin(font-size, 32);
+      @include sizeMin1024(max-width, 300);
+      @include sizeMin1024(font-size, 32);
 
       span {
          color: #64616e;
@@ -262,38 +260,38 @@
 
       img {
          border-radius: 7px;
-         width: 120px;
+         width: 128px;
+         @include sizeMin(width, 160);
+         @include sizeMin1024(width, 128);
       }
    }
 
    &__consultation-text {
       max-width: 216px;
-      font-size: 10px;
+      font-size: 12px;
       line-height: 114%;
       color: #64616e;
+      @include sizeMin(margin-bottom, 40);
+      @include sizeMin1024(margin-bottom, 40);
 
       @media (min-width:768px) {
-         font-size: 13px;
+         font-size: 14px;
       }
+
+
    }
 
    &__consultation-footer {
       display: flex;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 32px;
       align-items: center;
-
-      &>* {
-         flex: 1 1 auto;
-      }
    }
 
    &__consultation-price {
-      font-size: 20px;
       line-height: 112%;
-
-      @media (min-width:768px) {
-         font-size: 29px;
-      }
+      @include sizeMin(font-size, 32);
+      @include sizeMin1024(font-size, 32);
    }
 
 

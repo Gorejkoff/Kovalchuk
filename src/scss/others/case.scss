@@ -29,7 +29,7 @@
       transform: translateZ(-2px);
       width: 100vw;
       display: flex;
-      font-size: 20px;
+      font-size: 6vw;
       line-height: 100%;
       color: #fff;
 
@@ -49,14 +49,18 @@
 
    &__text-table {
       display: flex;
-      // flex-direction: column;
       gap: 20px;
 
-      // @media (min-width:768px) {
-      //    flex-direction: row;
-      // }
       &>* {
          flex: 0 0 calc(50% - 10px);
+      }
+   }
+
+
+   &__number {
+      @media (max-width:767.98px) {
+         margin-bottom: 3vw;
+         font-size: 10vw;
       }
    }
 

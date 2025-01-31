@@ -1,7 +1,12 @@
 @use '../assets/variablesSCSS.scss' as *;
 
 .footer {
-   margin-top: 64px;
+   margin-top: 80px;
+   padding-bottom: 40px;
+
+   @media (min-width:1024px) {
+      margin-top: 144px;
+   }
 
    &__container {}
 
@@ -15,7 +20,7 @@
       @media (min-width:992px) {
          grid-template-columns: 1fr 1fr 1fr 1fr;
          row-gap: 0;
-         column-gap: 20px;
+         column-gap: 10vw;
       }
    }
 
@@ -38,9 +43,19 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 32px;
       grid-column: span 2;
+
+      @media (max-width:767.98px) {
+         .applying {
+            width: 100%;
+
+            a {
+               width: 100%;
+            }
+         }
+      }
 
       @media (min-width:992px) {
          margin-bottom: 74px;
@@ -71,6 +86,10 @@
          margin-bottom: 32px;
       }
 
+      @media (max-width:767.98px) {
+         grid-column: span 2;
+      }
+
       @media (min-width:992px) {
          order: 4;
       }
@@ -95,8 +114,12 @@
 
       ol {
          display: grid;
-         grid-template-columns: 1fr 1fr;
+         grid-template-columns: 1fr;
          gap: 16px;
+
+         @media (min-width:768px) {
+            grid-template-columns: 1fr 1fr;
+         }
       }
 
       li {

@@ -1,7 +1,13 @@
 //  отступы по бокам контейнера 
-$padding-mobile: 20px;
-$padding-tablet: 20px;
-$padding-desktop: 20px;
+
+
+$var-mobile: 20;
+$var-tablet: 20;
+$var-desktop: 20;
+
+$padding-mobile: $var-mobile * 1px;
+$padding-tablet: $var-tablet * 1px;
+$padding-desktop: $var-desktop * 1px;
 //  максимальный размер контента в контейнере 
 $width-content: 1440px;
 $width-big-content: 1920px;

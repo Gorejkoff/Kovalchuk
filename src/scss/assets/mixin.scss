@@ -1,3 +1,5 @@
+@use 'variablesSCSS' as *;
+
 /* 
 $prop - свойство,
 $min - минимальное значение,
@@ -31,4 +33,17 @@ $maxW - махимальная ширина вьюпорта
    @media (min-width: $minWidth) and (max-width:$maxWidth) {
       flex: $grow $shrink calc($minpx + (100vw - $minWidth)/($maxW - $minW)*($max - $min));
    }
+}
+
+@mixin sizeMin1024 ($prop, $size) {
+   $sizePX : $size + px;
+
+   @media (min-width: 1024px) {
+      #{$prop}: min($sizePX, $size / (1280 - $var-desktop * 2) * (100vw - $padding-desktop * 2))
+   }
+}
+
+@mixin sizeMin ($prop, $size) {
+   $sizePX : $size + px;
+   #{$prop}: min($sizePX, $size / (768 - $var-desktop * 2) * (100vw - $padding-desktop * 2))
 }

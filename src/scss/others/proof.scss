@@ -135,9 +135,11 @@
          background: rgba(31, 30, 31, 0.6);
          border-radius: 20px;
 
-         @media (min-width:768px) {}
+         @media (min-width:768px) {
+            font-size: 14px;
+         }
 
-         @media (min-width:10024px) {
+         @media (min-width:1024px) {
             padding: 9px 16px 7px;
             font-size: 16px;
          }

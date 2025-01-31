@@ -8,8 +8,8 @@
    &__body {
       display: flex;
       flex-wrap: wrap;
-      align-items: stretch;
-      gap: 12px;
+      align-items: center;
+      gap: 8px;
       font-weight: 500;
       font-size: 12px;
       line-height: 1;
@@ -32,18 +32,25 @@
       }
    }
 
-   &__title {
-      display: flex;
-      align-items: center;
+   &__content {
+      padding-top: 1px;
+      font-weight: 400;
+      font-size: 12px;
+      letter-spacing: 0.03em;
    }
 
    &__text {
+      padding-top: 1px;
       display: none;
       opacity: 0.6;
 
       @media (min-width:1024px) {
          display: block;
       }
+   }
+
+   &__link {
+      padding-top: 1px;
    }
 
    &__link-pc {
