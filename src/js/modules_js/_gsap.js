@@ -10,8 +10,35 @@ function headerMoveBack() {
    CONTENT.prepend(HEADER_WRAPPER);
 }
 
+
 window.addEventListener('load', (event) => {
    window.scrollTo(0, 0);
+
+
+   class DubleElement {
+      constructor(element) {
+         this.elementItem = document.querySelector(element);
+         this.init();
+      }
+      init = () => {
+         this.duble = this.elementItem.cloneNode(true);
+         this.duble.style.position = "fixed";
+         this.duble.style.zIndex = "5";
+         this.duble.style.margin = "0";
+         this.elementItem.style.opacity = "0";
+         document.body.prepend(this.duble)
+      }
+      position = () => {
+         this.location = this.elementItem.getBoundingClientRect();
+         this.duble.style.top = this.location.y + "px";
+         this.duble.style.left = this.location.x + "px";
+      }
+   }
+
+
+   const CASE_BUTTON = new DubleElement('.js-case-button');
+
+
 
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
    ScrollTrigger.config({ ignoreMobileResize: true });
@@ -23,7 +50,8 @@ window.addEventListener('load', (event) => {
       smooth: 2,
       smoothTouch: true,
       effects: true,
-      normalizeScroll: true
+      normalizeScroll: true,
+      onUpdate: () => CASE_BUTTON.position(),
    })
 
 
@@ -181,6 +209,8 @@ window.addEventListener('load', (event) => {
          setTimeout(() => { document.documentElement.style.scrollBehavior = "auto"; }, 1000)
       }
    })
+
+
 
 
 });  // end 'load'

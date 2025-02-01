@@ -24,9 +24,17 @@
 }
 
 .header {
+   position: relative;
    padding: 22px 0;
-   background: rgba(43, 41, 41, 0.24);
-   backdrop-filter: blur(40px);
+   background: rgba(43, 41, 41, 0.7);
+
+   @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+      background: rgba(43, 41, 41, 0.24);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+   }
+
+
 
    &__container {}
 
