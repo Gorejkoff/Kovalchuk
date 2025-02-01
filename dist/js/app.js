@@ -199,9 +199,9 @@ window.addEventListener('load', (event) => {
       wrapper: "#scroll",
       content: "#content",
       smooth: 2,
-      smoothTouch: true,
-      effects: true,
-      normalizeScroll: true,
+      // smoothTouch: true,
+      // effects: true,
+      // normalizeScroll: true,
       onUpdate: () => CASE_BUTTON.position(),
    })
 
