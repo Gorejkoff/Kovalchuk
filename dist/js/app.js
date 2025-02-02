@@ -166,28 +166,28 @@ window.addEventListener('load', (event) => {
    window.scrollTo(0, 0);
 
 
-   // class DubleElement {
-   //    constructor(element) {
-   //       this.elementItem = document.querySelector(element);
-   //       this.init();
-   //    }
-   //    init = () => {
-   //       this.duble = this.elementItem.cloneNode(true);
-   //       this.duble.style.position = "fixed";
-   //       this.duble.style.zIndex = "5";
-   //       this.duble.style.margin = "0";
-   //       this.elementItem.style.opacity = "0";
-   //       document.body.prepend(this.duble)
-   //    }
-   //    position = () => {
-   //       this.location = this.elementItem.getBoundingClientRect();
-   //       this.duble.style.top = this.location.y + "px";
-   //       this.duble.style.left = this.location.x + "px";
-   //    }
-   // }
+   class DubleElement {
+      constructor(element) {
+         this.elementItem = document.querySelector(element);
+         this.init();
+      }
+      init = () => {
+         this.duble = this.elementItem.cloneNode(true);
+         this.duble.style.position = "fixed";
+         this.duble.style.zIndex = "5";
+         this.duble.style.margin = "0";
+         this.elementItem.style.opacity = "0";
+         document.body.prepend(this.duble)
+      }
+      position = () => {
+         this.location = this.elementItem.getBoundingClientRect();
+         this.duble.style.top = this.location.y + "px";
+         this.duble.style.left = this.location.x + "px";
+      }
+   }
 
 
-   // const CASE_BUTTON = new DubleElement('.js-case-button');
+   const CASE_BUTTON = new DubleElement('.js-case-button');
 
 
 
@@ -198,11 +198,11 @@ window.addEventListener('load', (event) => {
    smoother = ScrollSmoother.create({
       wrapper: "#scroll",
       content: "#content",
-      smooth: 2,
+      smooth: 0,
       // smoothTouch: true,
       // effects: true,
       // normalizeScroll: true,
-      // onUpdate: () => CASE_BUTTON.position(),
+      onUpdate: () => CASE_BUTTON.position(),
    })
 
 
