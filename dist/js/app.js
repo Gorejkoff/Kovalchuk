@@ -180,9 +180,11 @@ window.addEventListener('load', (event) => {
          document.body.prepend(this.duble)
       }
       position = () => {
-         this.location = this.elementItem.getBoundingClientRect();
-         this.duble.style.top = this.location.y + "px";
-         this.duble.style.left = this.location.x + "px";
+         requestAnimationFrame(() => {
+            this.location = this.elementItem.getBoundingClientRect();
+            this.duble.style.top = this.location.y + "px";
+            this.duble.style.left = this.location.x + "px";
+         })
       }
    }
 
