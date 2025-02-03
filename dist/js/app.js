@@ -184,13 +184,13 @@ function addDubleButton() {
          pin: DUBLE,
          pinSpacing: false,
          scrub: 0,
-         markers: {
-            startColor: "green",
-            endColor: "red",
-            fontSize: "40px",
-            fontWeight: "bold",
-            indent: 20
-         }
+         // markers: {
+         //    startColor: "green",
+         //    endColor: "red",
+         //    fontSize: "40px",
+         //    fontWeight: "bold",
+         //    indent: 20
+         // }
       }
    })
 }
