@@ -118,20 +118,24 @@ window.addEventListener('load', (event) => {
    const text_2 = document.querySelectorAll('.js-text-animate-2 .word span');
    const text_3 = document.querySelectorAll('.js-text-animate-3 .word span');
 
-   text_1.forEach((e) => {
-      tl.to(e, 1, { opacity: 1 })
-   })
+   if (MIN1024.matches) {
+      text_1.forEach((e) => {
+         tl.to(e, 1, { opacity: 1 })
+      })
+   }
    tl.to('.js-case-text', 20, {
       x: "-100vw",
 
    })
-   text_2.forEach((e) => {
-      tl.to(e, 1, { opacity: 1 })
-   })
-   text_3.forEach((e) => {
-      tl.to(e, 1, { opacity: 1 })
-   })
+   if (MIN1024.matches) {
+      text_2.forEach((e) => {
+         tl.to(e, 1, { opacity: 1 })
+      })
 
+      text_3.forEach((e) => {
+         tl.to(e, 1, { opacity: 1 })
+      })
+   }
    function setPathFraming(vectorElement, parentElement) {
       const framing = document.querySelector(vectorElement);
       if (!framing) { return }

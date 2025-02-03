@@ -42,7 +42,6 @@ function throttle(callee, timeout) {
    }
 }
 
-
 function textWpapSpan(elementName) {
    const listText = document.querySelectorAll(elementName);
    listText.forEach(element => {

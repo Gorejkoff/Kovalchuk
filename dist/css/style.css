@@ -2685,6 +2685,11 @@ body {
 }
 
 @media (max-width: 1023.98px) {
+  .text-animate.text-animate-pc .word span,
+  .text-animate.text-animate-pc .word.white span {
+    opacity: 1;
+  }
+
   .decisions__block {
     margin-bottom: 40px;
   }

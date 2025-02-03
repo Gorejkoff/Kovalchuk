@@ -370,6 +370,17 @@ body {
          color: #fff;
       }
    }
+
+   @media (max-width:1023.98px) {
+      &.text-animate-pc {
+
+         .word span,
+         .word.white span {
+            opacity: 1;
+         }
+
+      }
+   }
 }
 
 .framing {
