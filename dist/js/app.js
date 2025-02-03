@@ -190,6 +190,13 @@ window.addEventListener('load', (event) => {
    // const CASE_BUTTON = new DubleElement('.js-case-button');
 
 
+   // const JS_CASE_BUTTON = document.querySelector('.js-case-button')
+
+   // let parent = JS_CASE_BUTTON.offsetParent;
+
+   // console.log(parent);
+
+
 
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
    ScrollTrigger.config({ ignoreMobileResize: true });
@@ -204,6 +211,8 @@ window.addEventListener('load', (event) => {
       // normalizeScroll: true,
       // onUpdate: () => CASE_BUTTON.position(),
    })
+   smoother.paused(true)
+
 
 
    gsap.to('.header__wrapper', {
@@ -362,7 +371,7 @@ window.addEventListener('load', (event) => {
    })
 
 
-
+   setTimeout(() => { smoother.paused(false) }, 3000)
 
 });  // end 'load'
 
