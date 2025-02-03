@@ -1,3 +1,15 @@
+.case__sell {
+   position: relative;
+
+}
+
+.js-case-button-duble {
+   position: absolute;
+   top: var(--top-offset, 10%);
+   left: 50%;
+   transform: translateX(-50%);
+}
+
 .case {
    will-change: transform;
 
@@ -13,7 +25,6 @@
       align-items: center;
    }
 
-   &__sell {}
 
    &__margin-anhor {
       margin-bottom: 40px;

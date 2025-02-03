@@ -993,6 +993,19 @@ body {
   }
 }
 
+.case__sell {
+  position: relative;
+}
+
+.js-case-button-duble {
+  position: absolute;
+  top: var(--top-offset, 10%);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
 .case {
   will-change: transform;
 }

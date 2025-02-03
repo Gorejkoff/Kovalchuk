@@ -165,41 +165,10 @@ window.addEventListener('load', (event) => {
    window.scrollTo(0, 0);
 
 
-   // class DubleElement {
-   //    constructor(element) {
-   //       this.elementItem = document.querySelector(element);
-   //       this.init();
-   //    }
-   //    init = () => {
-   //       this.duble = this.elementItem.cloneNode(true);
-   //       this.duble.style.position = "fixed";
-   //       this.duble.style.zIndex = "5";
-   //       this.duble.style.margin = "0";
-   //       this.elementItem.style.opacity = "0";
-   //       document.body.prepend(this.duble)
-   //    }
-   //    position = () => {
-   //       this.location = this.elementItem.getBoundingClientRect();
-   //       this.duble.style.top = this.location.y + "px";
-   //       this.duble.style.left = this.location.x + "px";
-   //    }
-   // }
-
-
-   // const CASE_BUTTON = new DubleElement('.js-case-button');
-
-
-   // const JS_CASE_BUTTON = document.querySelector('.js-case-button')
-
-   // let parent = JS_CASE_BUTTON.offsetParent;
-
-   // console.log(parent);
-
-
-
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
    ScrollTrigger.config({ ignoreMobileResize: true });
    ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
+
 
    smoother = ScrollSmoother.create({
       wrapper: "#scroll",
@@ -208,7 +177,6 @@ window.addEventListener('load', (event) => {
       // smoothTouch: true,
       // effects: true,
       // normalizeScroll: true,
-      // onUpdate: () => CASE_BUTTON.position(),
    })
    smoother.paused(true)
 
@@ -231,6 +199,37 @@ window.addEventListener('load', (event) => {
       xTo(-(event.clientX - window.innerWidth / 2) / 10);
       yTo(-(event.clientY - window.innerHeight / 2) / 10);
    });
+
+   const JS_CASE_BUTTON = document.querySelector('.js-case-button')
+   const CASE_SELL = document.querySelector('.case__sell')
+
+   const DUBLE = JS_CASE_BUTTON.cloneNode(true);
+   DUBLE.style.position = "absolute";
+   DUBLE.style.zIndex = "5";
+   DUBLE.style.left = "50%";
+   DUBLE.style.top = JS_CASE_BUTTON.offsetTop + "px";
+   DUBLE.style.transform = "translateX(-50%)";
+   DUBLE.style.margin = "0";
+   JS_CASE_BUTTON.style.opacity = "0";
+   CASE_SELL.prepend(DUBLE);
+   gsap.to(DUBLE, {
+      scrollTrigger: {
+         trigger: ".case__sell",
+         start: `0 0`,
+         end: `${CASE_SELL.offsetHeight * 2}px 100%`,
+         pin: DUBLE,
+         pinSpacing: false,
+         scrub: 0,
+         // markers: {
+         //    startColor: "green",
+         //    endColor: "red",
+         //    fontSize: "40px",
+         //    fontWeight: "bold",
+         //    indent: 20
+         // }
+      }
+   })
+
 
    gsap.to(".case", {
       scrollTrigger: {
