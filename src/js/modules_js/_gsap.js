@@ -11,6 +11,40 @@ function headerMoveBack() {
 }
 
 
+function addDubleButton() {
+   const JS_CASE_BUTTON = document.querySelector('.js-case-button')
+   const CASE_SELL = document.querySelector('.case__sell')
+   const DUBLE = JS_CASE_BUTTON.cloneNode(true);
+   DUBLE.style.position = "absolute";
+   DUBLE.style.zIndex = "5";
+   DUBLE.style.left = "50%";
+   DUBLE.style.top = JS_CASE_BUTTON.offsetTop + "px";
+   DUBLE.style.transform = "translateX(-50%)";
+   DUBLE.style.margin = "0";
+   JS_CASE_BUTTON.style.opacity = "0";
+   CASE_SELL.prepend(DUBLE);
+
+   console.log(CASE_SELL.offsetHeight);
+
+   gsap.to(DUBLE, {
+      scrollTrigger: {
+         trigger: ".case__sell",
+         start: `0 0`,
+         end: `${CASE_SELL.offsetHeight}px 100%`,
+         pin: DUBLE,
+         pinSpacing: false,
+         scrub: 0,
+         markers: {
+            startColor: "green",
+            endColor: "red",
+            fontSize: "40px",
+            fontWeight: "bold",
+            indent: 20
+         }
+      }
+   })
+}
+
 window.addEventListener('load', (event) => {
    window.scrollTo(0, 0);
 
@@ -50,36 +84,6 @@ window.addEventListener('load', (event) => {
       yTo(-(event.clientY - window.innerHeight / 2) / 10);
    });
 
-   const JS_CASE_BUTTON = document.querySelector('.js-case-button')
-   const CASE_SELL = document.querySelector('.case__sell')
-
-   const DUBLE = JS_CASE_BUTTON.cloneNode(true);
-   DUBLE.style.position = "absolute";
-   DUBLE.style.zIndex = "5";
-   DUBLE.style.left = "50%";
-   DUBLE.style.top = JS_CASE_BUTTON.offsetTop + "px";
-   DUBLE.style.transform = "translateX(-50%)";
-   DUBLE.style.margin = "0";
-   JS_CASE_BUTTON.style.opacity = "0";
-   CASE_SELL.prepend(DUBLE);
-   gsap.to(DUBLE, {
-      scrollTrigger: {
-         trigger: ".case__sell",
-         start: `0 0`,
-         end: `${CASE_SELL.offsetHeight * 2}px 100%`,
-         pin: DUBLE,
-         pinSpacing: false,
-         scrub: 0,
-         // markers: {
-         //    startColor: "green",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
-      }
-   })
-
 
    gsap.to(".case", {
       scrollTrigger: {
@@ -103,6 +107,8 @@ window.addEventListener('load', (event) => {
          scrub: 0,
       }
    })
+
+
 
    function addWhiteWords(wordsList, array) {
       wordsList.forEach((element, index) => {
@@ -135,6 +141,7 @@ window.addEventListener('load', (event) => {
          tl.to(e, 1, { opacity: 1 })
       })
    }
+
    function setPathFraming(vectorElement, parentElement) {
       const framing = document.querySelector(vectorElement);
       if (!framing) { return }
@@ -153,6 +160,11 @@ window.addEventListener('load', (event) => {
          start: "50% 90%",
          end: "50% 10%",
       }
+   })
+
+
+   setTimeout(() => {
+      addDubleButton()
    })
 
 
