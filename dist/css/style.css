@@ -27,6 +27,14 @@
 @font-face {
   font-family: "Helios";
   font-display: swap;
+  src: url("../fonts/Helios/Helios_Regular.woff2") format("woff2"), url("../fonts/Helios/Helios_Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helios";
+  font-display: swap;
   src: url("../fonts/Helios/Helios_Light.woff2") format("woff2"), url("../fonts/Helios/Helios_Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
