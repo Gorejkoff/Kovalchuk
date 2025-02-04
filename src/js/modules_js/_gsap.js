@@ -19,7 +19,7 @@ function addDubleButton() {
    DUBLE.style.zIndex = "5";
    DUBLE.style.left = "50%";
    DUBLE.style.bottom = "24px";
-   DUBLE.style.transform = "translateX(-50%)";
+   DUBLE.style.transform = "translate3d(-50%, 0, 0)";
    DUBLE.style.margin = "0";
    document.body.prepend(DUBLE);
 
@@ -80,7 +80,7 @@ window.addEventListener('load', (event) => {
       wrapper: "#scroll",
       content: "#content",
       smooth: 2,
-      smoothTouch: true,
+      smoothTouch: false,
       // effects: true,
       // normalizeScroll: true,
    })
@@ -232,8 +232,11 @@ window.addEventListener('load', (event) => {
       if (event.target.closest('[href^="#"]')) {
          event.preventDefault();
          let getName = event.target.closest('[href^="#"]').getAttribute('href');
+         document.documentElement.style.scrollBehavior = "smooth";
          openMenuMobile(false);
-         gsap.to(window, { scrollTo: getName })
+         smoother.scrollTo(getName, false);
+         // gsap.to(window, {scrollTo: getName})
+         setTimeout(() => { document.documentElement.style.scrollBehavior = "auto"; }, 1000)
       }
    })
 
