@@ -13,27 +13,49 @@ function headerMoveBack() {
 
 function addDubleButton() {
    const JS_CASE_BUTTON = document.querySelector('.js-case-button')
-   const CASE_SELL = document.querySelector('.case__sell')
+   const PROOF_ARD = document.querySelector('.proof__card');
    const DUBLE = JS_CASE_BUTTON.cloneNode(true);
-   DUBLE.style.position = "absolute";
+   DUBLE.style.position = "fixed";
    DUBLE.style.zIndex = "5";
    DUBLE.style.left = "50%";
-   DUBLE.style.top = JS_CASE_BUTTON.offsetTop + "px";
+   DUBLE.style.bottom = "24px";
    DUBLE.style.transform = "translateX(-50%)";
    DUBLE.style.margin = "0";
-   JS_CASE_BUTTON.style.opacity = "0";
-   CASE_SELL.prepend(DUBLE);
+   document.body.prepend(DUBLE);
 
-   console.log(CASE_SELL.offsetHeight);
 
-   gsap.to(DUBLE, {
+   gsap.to(JS_CASE_BUTTON, {
+      opacity: 0,
+      duration: 0.2,
       scrollTrigger: {
-         trigger: ".case__sell",
-         start: `0 0`,
-         end: `${CASE_SELL.offsetHeight}px 100%`,
-         pin: DUBLE,
-         pinSpacing: false,
-         scrub: 0,
+         trigger: ".proof",
+         start: `0 100%`,
+         end: `0 100%`,
+         toggleActions: 'play none none reverse',
+         // markers: {
+         //    startColor: "green",
+         //    endColor: "red",
+         //    fontSize: "40px",
+         //    fontWeight: "bold",
+         //    indent: 20
+         // }
+      }
+   })
+
+
+   gsap.fromTo(DUBLE, {
+      opacity: 0,
+      duration: 0.2,
+      pointerEvents: "none"
+
+   }, {
+      opacity: 1, duration: 0.2,
+      pointerEvents: "all",
+      scrollTrigger: {
+         trigger: ".proof",
+         start: `0 ${VH - PROOF_ARD.offsetHeight}px`,
+         end: `100% ${VH + 60}px`,
+         toggleActions: 'play reverse play reverse',
          // markers: {
          //    startColor: "green",
          //    endColor: "red",
