@@ -225,16 +225,18 @@ window.addEventListener('load', (event) => {
    ScrollTrigger.config({ ignoreMobileResize: true });
    ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
 
+   if (isPC) {
+      smoother = ScrollSmoother.create({
+         wrapper: "#scroll",
+         content: "#content",
+         smooth: 2,
+         // smoothTouch: true,
+         // effects: true,
+         // normalizeScroll: true,
+      })
+      smoother.paused(true)
+   }
 
-   smoother = ScrollSmoother.create({
-      wrapper: "#scroll",
-      content: "#content",
-      smooth: 2,
-      // smoothTouch: true,
-      // effects: true,
-      // normalizeScroll: true,
-   })
-   smoother.paused(true)
 
 
 
@@ -389,8 +391,9 @@ window.addEventListener('load', (event) => {
       }
    })
 
-
-   setTimeout(() => { smoother.paused(false) }, 3000)
+   if (isPC) {
+      setTimeout(() => { smoother.paused(false) }, 3000)
+   }
 
 });  // end 'load'
 
