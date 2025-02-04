@@ -182,13 +182,13 @@ function addDubleButton() {
          start: `5 100%`,
          end: `0 100%`,
          toggleActions: 'play none none reverse',
-         markers: {
-            startColor: "green",
-            endColor: "red",
-            fontSize: "40px",
-            fontWeight: "bold",
-            indent: 20
-         }
+         // markers: {
+         //    startColor: "green",
+         //    endColor: "red",
+         //    fontSize: "40px",
+         //    fontWeight: "bold",
+         //    indent: 20
+         // }
       }
    })
 
