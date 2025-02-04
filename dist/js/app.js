@@ -391,7 +391,7 @@ window.addEventListener('load', (event) => {
    })
 
 
-   setTimeout(() => { smoother.paused(false) }, 3000)
+   setTimeout(() => { smoother.paused(false) })
 
 });  // end 'load'
 
