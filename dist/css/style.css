@@ -993,10 +993,6 @@ body {
   }
 }
 
-.case__sell {
-  position: relative;
-}
-
 .case {
   will-change: transform;
 }

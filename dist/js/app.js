@@ -179,16 +179,16 @@ function addDubleButton() {
       duration: 0.2,
       scrollTrigger: {
          trigger: ".proof",
-         start: `0 100%`,
+         start: `5 100%`,
          end: `0 100%`,
          toggleActions: 'play none none reverse',
-         // markers: {
-         //    startColor: "green",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
+         markers: {
+            startColor: "green",
+            endColor: "red",
+            fontSize: "40px",
+            fontWeight: "bold",
+            indent: 20
+         }
       }
    })
 
@@ -203,9 +203,16 @@ function addDubleButton() {
       pointerEvents: "all",
       scrollTrigger: {
          trigger: ".proof",
-         start: `0 ${VH - PROOF_ARD.offsetHeight}px`,
+         start: `3 ${VH - PROOF_ARD.offsetHeight}px`,
          end: `100% ${VH + 60}px`,
          toggleActions: 'play reverse play reverse',
+         //   markers: {
+         //    startColor: "green",
+         //    endColor: "red",
+         //    fontSize: "40px",
+         //    fontWeight: "bold",
+         //    indent: 20
+         // }
       }
    })
 }
@@ -328,11 +335,6 @@ window.addEventListener('load', (event) => {
    })
 
 
-   setTimeout(() => {
-      addDubleButton()
-   })
-
-
    if (MIN1024.matches) {
       const services_title = document.querySelector('.services__title')
       const ENUM_HEIGHT = document.querySelector('.services__enum').offsetHeight;
@@ -371,6 +373,10 @@ window.addEventListener('load', (event) => {
          }
       })
    }
+
+
+   addDubleButton()
+
 
    document.body.addEventListener('click', (event) => {
       if (event.target.closest('[href^="#"]')) {
