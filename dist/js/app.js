@@ -206,13 +206,6 @@ function addDubleButton() {
          start: `0 ${VH - PROOF_ARD.offsetHeight}px`,
          end: `100% ${VH + 60}px`,
          toggleActions: 'play reverse play reverse',
-         // markers: {
-         //    startColor: "green",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
       }
    })
 }
@@ -352,13 +345,6 @@ window.addEventListener('load', (event) => {
             pin: ".services__title",
             pinSpacing: false,
             scrub: 0,
-            // markers: {
-            //    startColor: "green",
-            //    endColor: "red",
-            //    fontSize: "40px",
-            //    fontWeight: "bold",
-            //    indent: 20
-            // }
          }
       })
 
@@ -369,13 +355,6 @@ window.addEventListener('load', (event) => {
             end: `100% ${VH - 80}`,
             pin: ".services__enum",
             scrub: 0,
-            // markers: {
-            //    startColor: "green",
-            //    endColor: "red",
-            //    fontSize: "40px",
-            //    fontWeight: "bold",
-            //    indent: 20
-            // }
          }
       })
 
@@ -392,8 +371,6 @@ window.addEventListener('load', (event) => {
          }
       })
    }
-
-
 
    document.body.addEventListener('click', (event) => {
       if (event.target.closest('[href^="#"]')) {
