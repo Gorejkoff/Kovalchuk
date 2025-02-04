@@ -80,9 +80,9 @@ window.addEventListener('load', (event) => {
       wrapper: "#scroll",
       content: "#content",
       smooth: 2,
-      // smoothTouch: true,
+      smoothTouch: true,
       // effects: true,
-      normalizeScroll: true,
+      // normalizeScroll: true,
    })
    smoother.paused(true)
 
