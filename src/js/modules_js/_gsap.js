@@ -71,7 +71,7 @@ window.addEventListener('load', (event) => {
       smoother = ScrollSmoother.create({
          wrapper: "#scroll",
          content: "#content",
-         smooth: isPC ? 2 : 0,
+         smooth: 2,
          smoothTouch: false,
          // normalizeScroll: true,
       })
@@ -106,17 +106,17 @@ window.addEventListener('load', (event) => {
    addWhiteWords(words_1, whiteWord_1);
 
 
-   // gsap.to(".case", {
-   //    x: 0,
-   //    scrollTrigger: { 
-   //       trigger: ".proof",
-   //       start: `1 100%`,
-   //       end: `100% 100%`,
-   //       pin: ".case",
-   //       pinSpacing: false,
-   //       scrub: 0,
-   //    }
-   // })
+   gsap.to(".case", {
+      x: 0,
+      scrollTrigger: {
+         trigger: ".proof",
+         start: `3 100%`,
+         end: `100% 100%`,
+         pin: ".case",
+         pinSpacing: false,
+         scrub: 0,
+      }
+   })
 
 
    const tl = gsap.timeline({
