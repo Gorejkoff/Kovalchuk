@@ -36,18 +36,10 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: rgba(43, 41, 41, 0.24);
-      backdrop-filter: blur(40px);
-      -webkit-backdrop-filter: blur(40px);
+      // background: rgba(43, 41, 41, 0.24);
+      // backdrop-filter: blur(40px);
+      // -webkit-backdrop-filter: blur(40px);
    }
-
-   // @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-   //    &::before {
-   //       background: rgba(43, 41, 41, 0.24);
-   //       backdrop-filter: blur(40px);
-   //       -webkit-backdrop-filter: blur(40px);
-   //    }
-   // }
 
    &__body {
       display: flex;

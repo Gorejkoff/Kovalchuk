@@ -1,4 +1,7 @@
 .case {
+   position: sticky;
+   top: 0;
+
    &__container {}
 
    &__body {}

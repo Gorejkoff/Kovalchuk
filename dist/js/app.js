@@ -248,7 +248,7 @@ window.addEventListener('load', (event) => {
 
    // gsap.to(".case", {
    //    x: 0,
-   //    scrollTrigger: {
+   //    scrollTrigger: { 
    //       trigger: ".proof",
    //       start: `1 100%`,
    //       end: `100% 100%`,
