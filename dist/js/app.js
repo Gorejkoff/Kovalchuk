@@ -173,7 +173,6 @@ function addDubleButton() {
    DUBLE.style.margin = "0";
    document.body.prepend(DUBLE);
 
-
    gsap.to(JS_CASE_BUTTON, {
       opacity: 0,
       duration: 0.2,
@@ -182,22 +181,13 @@ function addDubleButton() {
          start: `5 100%`,
          end: `0 100%`,
          toggleActions: 'play none none reverse',
-         // markers: {
-         //    startColor: "green",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
       }
    })
-
 
    gsap.fromTo(DUBLE, {
       opacity: 0,
       duration: 0.2,
       pointerEvents: "none"
-
    }, {
       opacity: 1, duration: 0.2,
       pointerEvents: "all",
@@ -206,13 +196,6 @@ function addDubleButton() {
          start: `3 ${VH - PROOF_ARD.offsetHeight}px`,
          end: `100% ${VH + 60}px`,
          toggleActions: 'play reverse play reverse',
-         //   markers: {
-         //    startColor: "green",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
       }
    })
 }
@@ -230,9 +213,9 @@ window.addEventListener('load', (event) => {
       wrapper: "#scroll",
       content: "#content",
       smooth: 2,
-      smoothTouch: false,
+      // smoothTouch: false,
       // effects: true,
-      // normalizeScroll: true,
+      normalizeScroll: true,
    })
    smoother.paused(true)
 
