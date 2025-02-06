@@ -10,6 +10,16 @@ function headerMoveBack() {
    CONTENT.prepend(HEADER_WRAPPER);
 }
 
+function textWpapSpan(elementName) {
+   const listText = document.querySelectorAll(elementName);
+   listText.forEach(element => {
+      const words = element.innerHTML.trim().split(' ');
+      const wordWrap = words.map(item => { return item.split('').map(e => { return `<span>${e}</span>` }).join('') })
+      element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
+   });
+}
+
+textWpapSpan(".js-text-wrap")
 
 function addDubleButton() {
    const JS_CASE_BUTTON = document.querySelector('.js-case-button')
@@ -90,59 +100,93 @@ window.addEventListener('load', (event) => {
       yTo(-(event.clientY - window.innerHeight / 2) / 10);
    });
 
-
-   gsap.to(".case", {
-      scrollTrigger: {
-         trigger: ".proof",
-         start: `1 100%`,
-         end: `100% 100%`,
-         pin: ".case",
-         pinSpacing: false,
-         scrub: 0,
-      }
-   })
-
-   const CASE_TEXT = document.querySelector('.js-case-text');
-
-   const tl = gsap.timeline({
-      scrollTrigger: {
-         trigger: ".js-case-trigger",
-         start: "0% 0%",
-         end: () => CASE_TEXT.offsetWidth * 2 + "px",
-         pin: true,
-         scrub: 0,
-      }
-   })
-
-
-
    function addWhiteWords(wordsList, array) {
       wordsList.forEach((element, index) => {
          if (array.includes(index + 1)) { element.classList.add('white') };
       })
    }
-
    const text_1 = document.querySelectorAll('.js-text-animate-1 .word span');
    const words_1 = document.querySelectorAll('.js-text-animate-1 .word');
    const whiteWord_1 = [1, 3, 4, 5, 6, 7, 8];
-   addWhiteWords(words_1, whiteWord_1)
-   const text_2 = document.querySelectorAll('.js-text-animate-2 .word span');
-   const text_3 = document.querySelectorAll('.js-text-animate-3 .word span');
+   addWhiteWords(words_1, whiteWord_1);
 
-   if (MIN1024.matches) {
-      text_1.forEach((e) => {
-         tl.to(e, 1, { opacity: 1 })
+   if (!isPC) {
+
+      const CASE = document.querySelector('.case');
+
+      function removeTransform() {
+         CASE.style.transform = ''
+         CASE.parentElement.style.transform = ''
+      }
+
+      gsap.to('.js-case-text', {
+         x: "-100vw",
+         scrollTrigger: {
+            trigger: ".js-case-trigger",
+            start: `0 0`,
+            end: `${VW * 2}px 95%`,
+            pin: true,
+            pinSpacing: true,
+            scrub: true,
+            onEnter: () => { removeTransform() },
+            onEnterBack: () => { removeTransform() },
+            onLeave: () => { removeTransform() },
+            onLeaveBack: () => { removeTransform() },
+         }
+      })
+
+      gsap.to(".case", {
+         x: 0,
+         scrollTrigger: {
+            trigger: ".proof",
+            start: `1 100%`,
+            end: `100% 100%`,
+            pin: ".case",
+            pinSpacing: false,
+            scrub: 0,
+         }
       })
    }
-   tl.to('.js-case-text', 20, {
-      x: "-100vw",
 
-   })
-   if (MIN1024.matches) {
+   if (isPC) {
+      gsap.to(".case", {
+         x: 0,
+         scrollTrigger: {
+            trigger: ".proof",
+            start: `1 100%`,
+            end: `100% 100%`,
+            pin: ".case",
+            pinSpacing: false,
+            scrub: 0,
+         }
+      })
+      const tl = gsap.timeline({
+         scrollTrigger: {
+            trigger: ".js-case-trigger",
+            start: "0 0",
+            end: `${VW * 2} 0`,
+            pin: true,
+            scrub: true,
+            // markers: {
+            //    startColor: "green",
+            //    endColor: "red",
+            //    fontSize: "40px",
+            //    fontWeight: "bold",
+            //    indent: 20
+            // }
+         }
+      })
+      text_1.forEach((e) => {
+         tl.to(e, 1, { opacity: 2 })
+      })
+      tl.to('.js-case-text', 20, {
+         x: "-100vw",
+      })
+      const text_2 = document.querySelectorAll('.js-text-animate-2 .word span');
       text_2.forEach((e) => {
          tl.to(e, 1, { opacity: 1 })
       })
-
+      const text_3 = document.querySelectorAll('.js-text-animate-3 .word span');
       text_3.forEach((e) => {
          tl.to(e, 1, { opacity: 1 })
       })

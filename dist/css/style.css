@@ -115,7 +115,6 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  scrollbar-gutter: stable;
 }
 
 input,
@@ -198,7 +197,6 @@ body {
   --container-width: 1440px;
   --max-width-container: 1480px;
   --max-width-big-container: 1960px;
-  scrollbar-gutter: stable;
 }
 
 .wrapper {
@@ -217,10 +215,6 @@ body {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-}
-
-#content {
-  will-change: transform;
 }
 
 [class*=__container] {
@@ -1001,10 +995,6 @@ body {
   }
 }
 
-.case {
-  will-change: transform;
-}
-
 .case__trigger {
   padding-top: var(--height-header);
   min-height: var(--vh);
@@ -1024,8 +1014,6 @@ body {
 .case__text {
   position: relative;
   z-index: 2;
-  -webkit-transform: translateZ(-2px);
-          transform: translateZ(-2px);
   width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;

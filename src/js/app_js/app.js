@@ -42,16 +42,6 @@ function throttle(callee, timeout) {
    }
 }
 
-function textWpapSpan(elementName) {
-   const listText = document.querySelectorAll(elementName);
-   listText.forEach(element => {
-      const words = element.innerHTML.trim().split(' ');
-      const wordWrap = words.map(item => { return item.split('').map(e => { return `<span>${e}</span>` }).join('') })
-      element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
-   });
-}
-textWpapSpan(".js-text-wrap")
-
 /* запись переменных высоты элементов */
 function addHeightVariable() {
    if (HEADER) document.body.style.setProperty('--height-header', `${HEADER.offsetHeight}px`)
@@ -65,9 +55,9 @@ function openMenuMobile(open) {
       document.documentElement.classList.toggle('mobile-menu-open');
    }
    if (document.documentElement.classList.contains('mobile-menu-open')) {
-      smoother.paused(true)
+      isPC ? smoother.paused(true) : document.body.style.overflow = 'hidden'
    } else {
-      smoother.paused(false)
+      isPC ? smoother.paused(false) : document.body.style.overflow = ''
    }
 }
 

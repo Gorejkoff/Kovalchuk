@@ -1,6 +1,4 @@
 .case {
-   will-change: transform;
-
    &__container {}
 
    &__body {}
@@ -25,7 +23,6 @@
    &__text {
       position: relative;
       z-index: 2;
-      transform: translateZ(-2px);
       width: 100vw;
       display: flex;
       font-size: 6vw;
