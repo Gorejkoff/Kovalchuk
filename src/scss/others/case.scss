@@ -1,10 +1,9 @@
 .case {
-   position: sticky;
-   top: 0;
 
-   ._touch & {
+   @media (max-width:1023.98px) {
       transform: none !important;
    }
+
 
    &__container {}
 

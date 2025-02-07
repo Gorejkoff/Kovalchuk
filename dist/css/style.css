@@ -995,17 +995,6 @@ body {
   }
 }
 
-.case {
-  position: sticky;
-  top: 0;
-}
-
-._touch .case {
-  -webkit-transform: none !important;
-      -ms-transform: none !important;
-          transform: none !important;
-}
-
 .case__trigger {
   padding-top: var(--height-header);
   min-height: var(--vh);
@@ -2695,6 +2684,12 @@ body {
   .text-animate.text-animate-pc .word span,
   .text-animate.text-animate-pc .word.white span {
     opacity: 1;
+  }
+
+  .case {
+    -webkit-transform: none !important;
+        -ms-transform: none !important;
+            transform: none !important;
   }
 
   .decisions__block {

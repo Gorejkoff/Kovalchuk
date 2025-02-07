@@ -55,9 +55,9 @@ function openMenuMobile(open) {
       document.documentElement.classList.toggle('mobile-menu-open');
    }
    if (document.documentElement.classList.contains('mobile-menu-open')) {
-      isPC ? smoother.paused(true) : document.body.style.overflow = 'hidden'
+      MIN1024.matches ? smoother.paused(true) : document.body.style.overflow = 'hidden'
    } else {
-      isPC ? smoother.paused(false) : document.body.style.overflow = ''
+      MIN1024.matches ? smoother.paused(false) : document.body.style.overflow = ''
    }
 }
 
@@ -72,7 +72,7 @@ document.documentElement.addEventListener("click", (event) => {
    if (event.target.closest('.baner__close')) { BANER.remove() };
    if (event.target.closest('.burger')) {
       openMenuMobile();
-      if (!isPC && !document.body.classList.contains('scroll-header')) {
+      if (!MIN1024.matches && !document.body.classList.contains('scroll-header')) {
          document.documentElement.classList.contains('mobile-menu-open') ?
             WRAPPER.prepend(HEADER_WRAPPER) :
             CONTENT.prepend(HEADER_WRAPPER);

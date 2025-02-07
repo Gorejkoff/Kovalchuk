@@ -18,6 +18,19 @@ function textWpapSpan(elementName) {
       element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
    });
 }
+function addStopCase() {
+   gsap.to(".case", {
+      x: 0,
+      scrollTrigger: {
+         trigger: ".proof",
+         start: `0 100%`,
+         end: `100% 100%`,
+         pin: ".case",
+         pinSpacing: false,
+         scrub: 0,
+      }
+   })
+}
 
 textWpapSpan(".js-text-wrap")
 
@@ -104,17 +117,6 @@ window.addEventListener('load', (event) => {
    addWhiteWords(words_1, whiteWord_1);
 
 
-   // gsap.to(".case", {
-   //    x: 0,
-   //    scrollTrigger: {
-   //       trigger: ".proof",
-   //       start: `3 100%`,
-   //       end: `100% 100%`,
-   //       pin: ".case",
-   //       pinSpacing: false,
-   //       scrub: 0,
-   //    }
-   // })
 
    const tl = gsap.timeline({
       scrollTrigger: {
@@ -134,6 +136,7 @@ window.addEventListener('load', (event) => {
    })
 
    if (MIN1024.matches) {
+      addStopCase();
 
       text_1.forEach((e) => {
          tl.to(e, 1, { opacity: 2 })
@@ -154,18 +157,7 @@ window.addEventListener('load', (event) => {
          x: "-100vw",
 
       })
-
-      gsap.to(".case", {
-         x: 0,
-         scrollTrigger: {
-            trigger: ".proof",
-            start: `3 100%`,
-            end: `100% 100%`,
-            pin: ".case",
-            pinSpacing: false,
-            scrub: 0,
-         }
-      })
+      addStopCase();
 
    }
 
@@ -234,11 +226,8 @@ window.addEventListener('load', (event) => {
       if (event.target.closest('[href^="#"]')) {
          event.preventDefault();
          let getName = event.target.closest('[href^="#"]').getAttribute('href');
-         // document.documentElement.style.scrollBehavior = "smooth";
          openMenuMobile(false);
-         // smoother.scrollTo(getName, false);
          gsap.to(window, { scrollTo: getName })
-         // setTimeout(() => { document.documentElement.style.scrollBehavior = "auto"; }, 1000)
       }
    })
 
