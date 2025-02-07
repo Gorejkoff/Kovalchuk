@@ -368,7 +368,7 @@ window.addEventListener('load', (event) => {
       })
    }
 
-   isPC && addDubleButton() // !!!!!  
+   addDubleButton()
 
    document.body.addEventListener('click', (event) => {
       if (event.target.closest('[href^="#"]')) {
