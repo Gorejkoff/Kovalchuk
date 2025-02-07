@@ -2,6 +2,10 @@
    position: sticky;
    top: 0;
 
+   ._touch & {
+      transform: none !important;
+   }
+
    &__container {}
 
    &__body {}

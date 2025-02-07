@@ -57,7 +57,7 @@ function openMenuMobile(open) {
    if (document.documentElement.classList.contains('mobile-menu-open')) {
       isPC ? smoother.paused(true) : document.body.style.overflow = 'hidden'
    } else {
-      isPC ? smoother.paused(false) : document.body.style.overflow = 'none'
+      isPC ? smoother.paused(false) : document.body.style.overflow = ''
    }
 }
 

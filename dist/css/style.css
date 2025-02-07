@@ -1000,6 +1000,12 @@ body {
   top: 0;
 }
 
+._touch .case {
+  -webkit-transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
+}
+
 .case__trigger {
   padding-top: var(--height-header);
   min-height: var(--vh);

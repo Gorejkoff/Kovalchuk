@@ -57,7 +57,7 @@ function openMenuMobile(open) {
    if (document.documentElement.classList.contains('mobile-menu-open')) {
       isPC ? smoother.paused(true) : document.body.style.overflow = 'hidden'
    } else {
-      isPC ? smoother.paused(false) : document.body.style.overflow = 'none'
+      isPC ? smoother.paused(false) : document.body.style.overflow = ''
    }
 }
 
@@ -206,15 +206,15 @@ window.addEventListener('load', (event) => {
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
    // ScrollTrigger.config({ ignoreMobileResize: true });
    // ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
-
-   smoother = ScrollSmoother.create({
-      wrapper: "#scroll",
-      content: "#content",
-      smooth: 2,
-      smoothTouch: false,
-      // normalizeScroll: true,
-   })
-
+   if (MIN1024.matches) {
+      smoother = ScrollSmoother.create({
+         wrapper: "#scroll",
+         content: "#content",
+         smooth: 2,
+         // smoothTouch: false,
+         // normalizeScroll: true,
+      })
+   }
    gsap.to('.header__wrapper', {
       scrollTrigger: {
          trigger: ".header__wrapper",
@@ -244,17 +244,17 @@ window.addEventListener('load', (event) => {
    addWhiteWords(words_1, whiteWord_1);
 
 
-   gsap.to(".case", {
-      x: 0,
-      scrollTrigger: {
-         trigger: ".proof",
-         start: `3 100%`,
-         end: `100% 100%`,
-         pin: ".case",
-         pinSpacing: false,
-         scrub: 0,
-      }
-   })
+   // gsap.to(".case", {
+   //    x: 0,
+   //    scrollTrigger: {
+   //       trigger: ".proof",
+   //       start: `3 100%`,
+   //       end: `100% 100%`,
+   //       pin: ".case",
+   //       pinSpacing: false,
+   //       scrub: 0,
+   //    }
+   // })
 
    const tl = gsap.timeline({
       scrollTrigger: {
@@ -292,7 +292,21 @@ window.addEventListener('load', (event) => {
    } else {
       tl.to('.js-case-text', {
          x: "-100vw",
+
       })
+
+      gsap.to(".case", {
+         x: 0,
+         scrollTrigger: {
+            trigger: ".proof",
+            start: `3 100%`,
+            end: `100% 100%`,
+            pin: ".case",
+            pinSpacing: false,
+            scrub: 0,
+         }
+      })
+
    }
 
    function setPathFraming(vectorElement, parentElement) {
