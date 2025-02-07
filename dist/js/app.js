@@ -204,8 +204,8 @@ window.addEventListener('load', (event) => {
    window.scrollTo(0, 0);
 
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
-   ScrollTrigger.config({ ignoreMobileResize: true });
-   ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
+   // ScrollTrigger.config({ ignoreMobileResize: true });
+   // ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
    if (MIN1024.matches) {
       smoother = ScrollSmoother.create({
          wrapper: "#scroll",
@@ -307,8 +307,6 @@ window.addEventListener('load', (event) => {
             //    indent: 20
             // }
          }
-
-
       })
    }
    function setPathFraming(vectorElement, parentElement) {
