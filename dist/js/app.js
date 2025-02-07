@@ -206,15 +206,15 @@ window.addEventListener('load', (event) => {
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
    // ScrollTrigger.config({ ignoreMobileResize: true });
    // ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
-   if (MIN1024.matches) {
-      smoother = ScrollSmoother.create({
-         wrapper: "#scroll",
-         content: "#content",
-         smooth: 2,
-         // smoothTouch: false,
-         // normalizeScroll: true,
-      })
-   }
+
+   smoother = ScrollSmoother.create({
+      wrapper: "#scroll",
+      content: "#content",
+      smooth: 2,
+      smoothTouch: false,
+      // normalizeScroll: true,
+   })
+
    gsap.to('.header__wrapper', {
       scrollTrigger: {
          trigger: ".header__wrapper",
@@ -244,37 +244,36 @@ window.addEventListener('load', (event) => {
    addWhiteWords(words_1, whiteWord_1);
 
 
-   // gsap.to(".case", {
-   //    x: 0,
-   //    scrollTrigger: {
-   //       trigger: ".proof",
-   //       start: `3 100%`,
-   //       end: `100% 100%`,
-   //       pin: ".case",
-   //       pinSpacing: false,
-   //       scrub: 0,
-   //    }
-   // })
+   gsap.to(".case", {
+      x: 0,
+      scrollTrigger: {
+         trigger: ".proof",
+         start: `3 100%`,
+         end: `100% 100%`,
+         pin: ".case",
+         pinSpacing: false,
+         scrub: 0,
+      }
+   })
 
-
+   const tl = gsap.timeline({
+      scrollTrigger: {
+         trigger: ".js-case-trigger",
+         start: "0 0",
+         end: `${VW * 2} 0`,
+         pin: true,
+         scrub: true,
+         // markers: {
+         //    startColor: "green",
+         //    endColor: "red",
+         //    fontSize: "40px",
+         //    fontWeight: "bold",
+         //    indent: 20
+         // }
+      }
+   })
 
    if (MIN1024.matches) {
-      const tl = gsap.timeline({
-         scrollTrigger: {
-            trigger: ".js-case-trigger",
-            start: "0 0",
-            end: `${VW * 2} 0`,
-            pin: true,
-            scrub: true,
-            // markers: {
-            //    startColor: "green",
-            //    endColor: "red",
-            //    fontSize: "40px",
-            //    fontWeight: "bold",
-            //    indent: 20
-            // }
-         }
-      })
 
       text_1.forEach((e) => {
          tl.to(e, 1, { opacity: 2 })
@@ -291,24 +290,11 @@ window.addEventListener('load', (event) => {
          tl.to(e, 1, { opacity: 1 })
       })
    } else {
-      gsap.to('.js-case-text', {
+      tl.to('.js-case-text', {
          x: "-100vw",
-         scrollTrigger: {
-            trigger: ".case",
-            start: "0 0",
-            end: `${VW * 2} 0`,
-            pin: true,
-            scrub: true,
-            // markers: {
-            //    startColor: "green",
-            //    endColor: "red",
-            //    fontSize: "40px",
-            //    fontWeight: "bold",
-            //    indent: 20
-            // }
-         }
       })
    }
+
    function setPathFraming(vectorElement, parentElement) {
       const framing = document.querySelector(vectorElement);
       if (!framing) { return }
