@@ -65,14 +65,14 @@ window.addEventListener('load', (event) => {
 
    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
    ScrollTrigger.config({ ignoreMobileResize: true });
-   // ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
+   ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
 
    smoother = ScrollSmoother.create({
       wrapper: "#scroll",
       content: "#content",
       smooth: 2,
       smoothTouch: false,
-      // normalizeScroll: true,
+      normalizeScroll: true,
    })
 
    gsap.to('.header__wrapper', {
@@ -114,6 +114,7 @@ window.addEventListener('load', (event) => {
          scrub: 0,
       }
    })
+
 
    const tl = gsap.timeline({
       scrollTrigger: {
