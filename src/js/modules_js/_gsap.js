@@ -67,15 +67,13 @@ window.addEventListener('load', (event) => {
    ScrollTrigger.config({ ignoreMobileResize: true });
    // ScrollTrigger.isTouch && ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
 
-   if (MIN1024.matches) {
-      smoother = ScrollSmoother.create({
-         wrapper: "#scroll",
-         content: "#content",
-         smooth: 2,
-         smoothTouch: false,
-         // normalizeScroll: true,
-      })
-   }
+   smoother = ScrollSmoother.create({
+      wrapper: "#scroll",
+      content: "#content",
+      smooth: 2,
+      smoothTouch: false,
+      // normalizeScroll: true,
+   })
 
    gsap.to('.header__wrapper', {
       scrollTrigger: {
@@ -105,7 +103,6 @@ window.addEventListener('load', (event) => {
    const whiteWord_1 = [1, 3, 4, 5, 6, 7, 8];
    addWhiteWords(words_1, whiteWord_1);
 
-
    gsap.to(".case", {
       x: 0,
       scrollTrigger: {
@@ -117,7 +114,6 @@ window.addEventListener('load', (event) => {
          scrub: 0,
       }
    })
-
 
    const tl = gsap.timeline({
       scrollTrigger: {
