@@ -55,9 +55,9 @@ function openMenuMobile(open) {
       document.documentElement.classList.toggle('mobile-menu-open');
    }
    if (document.documentElement.classList.contains('mobile-menu-open')) {
-      smoother.paused(true);
+      isPC ? smoother.paused(true) : document.body.style.overflow = 'hidden'
    } else {
-      smoother.paused(false);
+      isPC ? smoother.paused(false) : document.body.style.overflow = 'none'
    }
 }
 
