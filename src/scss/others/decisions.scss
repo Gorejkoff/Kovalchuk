@@ -27,7 +27,7 @@
 
       @media (min-width:1024px) {
          display: flex;
-         padding: 0 calc((100vw - var(--container-width)) / 2);
+         padding: 0 max(20px, calc((100vw - var(--container-width)) / 2));
       }
    }
 
