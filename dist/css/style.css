@@ -995,6 +995,16 @@ body {
   }
 }
 
+.case {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.case.set-opacity {
+  opacity: 0.2;
+}
+
 .case__trigger {
   padding-top: var(--height-header);
   min-height: var(--vh);

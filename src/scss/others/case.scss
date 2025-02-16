@@ -1,9 +1,14 @@
 .case {
+   opacity: 1;
+   transition: opacity 0.5s;
 
    @media (max-width:1023.98px) {
       transform: none !important;
    }
 
+   &.set-opacity {
+      opacity: 0.2;
+   }
 
    &__container {}
 

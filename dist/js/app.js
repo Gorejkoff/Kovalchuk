@@ -175,6 +175,7 @@ function addStopCase() {
 textWpapSpan(".js-text-wrap")
 
 function addDubleButton() {
+   const CASE = document.querySelector('.case');
    const JS_CASE_BUTTON = document.querySelector('.js-case-button')
    const PROOF_ARD = document.querySelector('.proof__card');
    const DUBLE = JS_CASE_BUTTON.cloneNode(true);
@@ -194,6 +195,9 @@ function addDubleButton() {
          start: `5 100%`,
          end: `0 100%`,
          toggleActions: 'play none none reverse',
+         toggleClass: { targets: ".wrapper", className: "active" },
+         onEnter: () => { CASE.classList.add('set-opacity') },
+         onLeaveBack: () => { CASE.classList.remove('set-opacity') },
       }
    })
 
@@ -295,7 +299,6 @@ window.addEventListener('load', (event) => {
    } else {
       tl.to('.js-case-text', {
          x: "-100vw",
-
       })
       addStopCase();
 
