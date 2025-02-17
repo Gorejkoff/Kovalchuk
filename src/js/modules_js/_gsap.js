@@ -18,8 +18,9 @@ function textWpapSpan(elementName) {
       element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
    });
 }
+
 function addStopCase() {
-   gsap.to(".case", {
+   document.querySelector(".case") && gsap.to(".case", {
       x: 0,
       scrollTrigger: {
          trigger: ".proof",
@@ -32,7 +33,9 @@ function addStopCase() {
    })
 }
 
-textWpapSpan(".js-text-wrap")
+if (document.querySelector('.js-text-wrap')) {
+   textWpapSpan(".js-text-wrap")
+}
 
 function addDubleButton() {
    const CASE = document.querySelector('.case');
@@ -92,68 +95,76 @@ window.addEventListener('load', (event) => {
          // normalizeScroll: true,
       })
    }
-   gsap.to('.header__wrapper', {
-      scrollTrigger: {
-         trigger: ".header__wrapper",
-         start: "150% 0",
-         end: "0 0",
-         onEnter: () => headerMoveUp(),
-         onEnterBack: () => headerMoveBack(),
-      }
-   })
+   if (document.querySelector('.header__wrapper')) {
+      gsap.to('.header__wrapper', {
+         scrollTrigger: {
+            trigger: ".header__wrapper",
+            start: "150% 0",
+            end: "0 0",
+            onEnter: () => headerMoveUp(),
+            onEnterBack: () => headerMoveBack(),
+         }
+      })
+   }
 
    const FIRST = document.querySelector('.first');
-   let xTo = gsap.quickTo(".first__gallery", "x", { duration: 1 });
-   let yTo = gsap.quickTo(".first__gallery", "y", { duration: 1 });
-   FIRST.addEventListener("mousemove", (event) => {
-      xTo(-(event.clientX - window.innerWidth / 2) / 10);
-      yTo(-(event.clientY - window.innerHeight / 2) / 10);
-   });
+   if (FIRST) {
+      let xTo = gsap.quickTo(".first__gallery", "x", { duration: 1 });
+      let yTo = gsap.quickTo(".first__gallery", "y", { duration: 1 });
+      FIRST.addEventListener("mousemove", (event) => {
+         xTo(-(event.clientX - window.innerWidth / 2) / 10);
+         yTo(-(event.clientY - window.innerHeight / 2) / 10);
+      });
+   }
 
    function addWhiteWords(wordsList, array) {
       wordsList.forEach((element, index) => {
          if (array.includes(index + 1)) { element.classList.add('white') };
       })
    }
-   const text_1 = document.querySelectorAll('.js-text-animate-1 .word span');
    const words_1 = document.querySelectorAll('.js-text-animate-1 .word');
-   const whiteWord_1 = [1, 3, 4, 5, 6, 7, 8];
-   addWhiteWords(words_1, whiteWord_1);
+   const text_1 = document.querySelectorAll('.js-text-animate-1 .word span');
+   if (words_1.length > 0) {
+      const whiteWord_1 = [1, 3, 4, 5, 6, 7, 8];
+      addWhiteWords(words_1, whiteWord_1);
+   }
 
-
-
-   const tl = gsap.timeline({
-      scrollTrigger: {
-         trigger: ".js-case-trigger",
-         start: "0 0",
-         end: `${VW * 2} 0`,
-         pin: true,
-         scrub: true,
-         // markers: {
-         //    startColor: "green",
-         //    endColor: "red",
-         //    fontSize: "40px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // }
-      }
-   })
+   let tl;
+   if (document.querySelector(".js-case-trigger")) {
+      tl = gsap.timeline({
+         scrollTrigger: {
+            trigger: ".js-case-trigger",
+            start: "0 0",
+            end: `${VW * 2} 0`,
+            pin: true,
+            scrub: true,
+            // markers: {
+            //    startColor: "green",
+            //    endColor: "red",
+            //    fontSize: "40px",
+            //    fontWeight: "bold",
+            //    indent: 20
+            // }
+         }
+      })
+   }
 
    if (MIN1024.matches) {
       addStopCase();
 
-      text_1.forEach((e) => {
+      words_1.length > 0 && text_1.forEach((e) => {
          tl.to(e, 1, { opacity: 2 })
       })
-      tl.to('.js-case-text', 20, {
+
+      document.querySelector('.js-case-text') && tl.to('.js-case-text', 20, {
          x: "-100vw",
       })
       const text_2 = document.querySelectorAll('.js-text-animate-2 .word span');
-      text_2.forEach((e) => {
+      text_2 && text_2.forEach((e) => {
          tl.to(e, 1, { opacity: 1 })
       })
       const text_3 = document.querySelectorAll('.js-text-animate-3 .word span');
-      text_3.forEach((e) => {
+      text_3 && text_3.forEach((e) => {
          tl.to(e, 1, { opacity: 1 })
       })
    } else {
@@ -172,9 +183,11 @@ window.addEventListener('load', (event) => {
       if (!parent) { return }
       parent.style.setProperty('--path-framing', path + 'px')
    }
-   setPathFraming(".js-framing-path", ".js-parent-framing")
+   if (document.querySelector(".js-framing-path")) {
+      setPathFraming(".js-framing-path", ".js-parent-framing")
+   }
 
-   gsap.to(".framing", {
+   document.querySelector(".framing") && gsap.to(".framing", {
       scrollTrigger: {
          trigger: ".framing",
          toggleActions: 'play none none reverse',
@@ -184,8 +197,8 @@ window.addEventListener('load', (event) => {
       }
    })
 
-   if (MIN1024.matches) {
-      const services_title = document.querySelector('.services__title')
+   const services_title = document.querySelector('.services__title')
+   if (MIN1024.matches && services_title) {
       const ENUM_HEIGHT = document.querySelector('.services__enum').offsetHeight;
 
       gsap.to(".services__title", {
@@ -222,8 +235,9 @@ window.addEventListener('load', (event) => {
          }
       })
    }
-
-   addDubleButton()
+   if (document.querySelector('.case')) {
+      addDubleButton()
+   }
 
    document.body.addEventListener('click', (event) => {
       if (event.target.closest('[href^="#"]')) {

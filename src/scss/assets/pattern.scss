@@ -309,6 +309,8 @@ body {
 }
 
 .applying {
+
+   button,
    a {
       padding: 10px 12px 8px;
       display: inline-block;
@@ -337,14 +339,15 @@ body {
    padding: 12px 10px 11px;
    display: flex;
    align-items: center;
+   justify-content: center;
    font-weight: 500;
    font-size: 12px;
-   text-align: center;
    line-height: 100%;
    color: #020102;
    background-color: #fff;
    border-radius: 30px;
-   max-width: max-content;
+   width: max-content;
+   min-width: 187px;
 
    @media (min-width:768px) {
       padding: 19px 20px 17px;
@@ -442,7 +445,7 @@ body {
       overflow: hidden;
    }
 
-   .mombile-menu {
+   .mobile-menu {
       top: 0;
    }
 

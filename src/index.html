@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-   @@include('html/1_head.html',{"title":"Ковальчук"})
+   @@include('html/1_head.html',{"title":"Ковальчук", "page": "index"})
 </head>
 
 <body>
@@ -20,7 +20,6 @@
                   @@include('html/2_header.html',{})
 
                </div>
-
 
                @@include('html/First/First.html',{})
                <div id="case">
@@ -42,8 +41,12 @@
 
    </div>
 
+
    @@include('html/Loader/Loader.html',{})
-   @@include('html/Mobile_Menu/Mobile_Menu.html',{})
+   @@include('html/Mobile_Menu/Mobile_Menu.html',{'anhor': true})
+   @@include('html/Modals/Modal-Application.html',{})
+   @@include('html/Modals/Send-Done.html',{})
+
 
    <script>
       if (history.scrollRestoration) { history.scrollRestoration = "manual" }

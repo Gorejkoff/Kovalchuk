@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+   @@include('html/1_head.html',{"title":"Ковальчук. О проектах.", "page": "about"})
+</head>
+
+<body>
+
+   <div class="wrapper">
+
+      <div id="scroll">
+         <div id="content">
+
+            <div id="main" class="main">
+
+               <div class="header__wrapper">
+
+                  @@include('html/2_header.html',{})
+
+               </div>
+
+               @@include('html/About-Page/About-Page.html',{})
+
+            </div>
+
+            @@include('html/4_footer.html',{})
+
+         </div>
+      </div>
+
+   </div>
+
+   @@include('html/Mobile_Menu/Mobile_Menu.html',{anhor: false})
+   @@include('html/Modals/Modal-Application.html',{})
+   @@include('html/Modals/Send-Done.html',{})
+   <script>
+      if (history.scrollRestoration) { history.scrollRestoration = "manual" }
+   </script>
+
+   @@include('html/3_scripts.html',{ swiper: false, })
+
+</body>
+
+</html>

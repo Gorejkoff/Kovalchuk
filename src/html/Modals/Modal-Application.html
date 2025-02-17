@@ -1,0 +1,31 @@
+<div id="modal-application" class="modal js-modal-hidden js-modal-close">
+   <div class="modal__container">
+      <div class="modal__body js-modal-stop-close">
+
+         <div class="modal__header">
+            <div class="modal__title">Оставить заявку</div>
+            <button class="modal__close js-modal-close" type="button">
+               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.6813 26.0166L5.98242 24.3339L14.3148 15.9877L5.98242 7.70159L7.6813 6.0166L16.0137 14.3397L24.2835 6.0166L25.9824 7.69928L17.6501 15.9854L25.9824 24.3339L24.2835 26.0166L16.0114 17.6935L7.6813 26.0166Z" fill="white" fill-opacity="0.4" />
+               </svg>
+            </button>
+         </div>
+
+         <form action="#0" method="post" name="application" id="application">
+            <div class="modal__inputs">
+               @@include('../Form/Input.html',{type: "text", placeholder:"Ваше имя"})
+               @@include('../Form/Input.html',{type: "text", placeholder:"+7", class: "js-phone"})
+               @@include('../Form/Input.html',{type: "text", placeholder:"Email", class:"email"})
+               @@include('../Form/input-file.html',{})
+            </div>
+         </form>
+         <div class="modal__footer">
+            <div class="modal__footer-text">Нажимая кнопку, вы подтверждаете свое согласие на обработку персональных данных</div>
+            <div>
+               <button class="button" type="submit" form="application">Отправить</button>
+            </div>
+         </div>
+
+      </div>
+   </div>
+</div>
