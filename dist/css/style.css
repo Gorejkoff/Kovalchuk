@@ -1179,6 +1179,7 @@ body {
 }
 
 .contacts__subscription {
+  position: relative;
   margin-top: 40px;
   margin-bottom: 10px;
   display: -webkit-box;
@@ -1213,23 +1214,24 @@ body {
   opacity: 0.4;
 }
 
+.contacts__subscription-button {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 1;
+}
+
 .contacts__image {
   position: relative;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
-  padding-bottom: 100%;
+  padding-bottom: 70%;
 }
 
 .contacts__image img {
   position: absolute;
-  top: 0;
   right: 0;
-  margin-left: -5%;
-  max-width: 105%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .contacts__body {
@@ -2545,7 +2547,20 @@ body {
   }
 
   .contacts__image {
+    padding-bottom: 100%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
     padding-bottom: 0;
+  }
+
+  .contacts__image img {
+    top: 0;
+    height: 100%;
+    margin-left: -5%;
+    max-width: 105%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 
   .contacts__link a {
@@ -3147,6 +3162,10 @@ body {
   .case__number {
     margin-bottom: 3vw;
     font-size: 10vw;
+  }
+
+  .contacts__image img {
+    bottom: 0;
   }
 }
 

@@ -11,6 +11,7 @@
    &__container {}
 
    &__subscription {
+      position: relative;
       margin-top: 40px;
       margin-bottom: 10px;
       display: flex;
@@ -60,24 +61,41 @@
       }
    }
 
+   &__subscription-button {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      z-index: 1;
+   }
+
    &__image {
       position: relative;
-      flex: 0 0 50%;
-      padding-bottom: 100%;
+      padding-bottom: 70%;
 
       @media (min-width:768px) {
+         padding-bottom: 100%;
+         flex: 0 0 50%;
          padding-bottom: 0;
 
       }
 
       img {
          position: absolute;
-         top: 0;
          right: 0;
-         margin-left: -5%;
-         max-width: 105%;
-         height: 100%;
-         object-fit: cover;
+         width: 100%;
+         object-fit: contain;
+
+         @media (max-width:767.98px) {
+            bottom: 0
+         }
+
+         @media (min-width:768px) {
+            top: 0;
+            height: 100%;
+            margin-left: -5%;
+            max-width: 105%;
+            object-fit: cover;
+         }
       }
    }
 
