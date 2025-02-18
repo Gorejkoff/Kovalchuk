@@ -1634,7 +1634,7 @@ body {
 
 .proof__card {
   position: relative;
-  padding: 15px;
+  padding: 16px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(50% - var(--gap) / 2);
           flex: 0 0 calc(50% - var(--gap) / 2);
@@ -2286,7 +2286,7 @@ body {
 }
 
 .about-page__title {
-  padding-top: 48px;
+  padding-top: 24px;
   margin-bottom: 32px;
   font-weight: 500;
   font-size: 44px;
@@ -2305,23 +2305,24 @@ body {
 }
 
 .about-page__main-image .proof__tags {
+  --padding: 16px;
   position: absolute;
-  bottom: 24px;
-  left: 24px;
-  max-width: 500px;
+  bottom: var(--padding);
+  left: var(--padding);
+  max-width: min(500px, 100% - var(--padding) * 2);
 }
 
 .about-page__block {
-  margin-top: 64px;
-  margin-bottom: 64px;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 .about-page__block-header {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .about-page__block-title {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-weight: 500;
   font-size: 32px;
   line-height: 110%;
@@ -2330,7 +2331,7 @@ body {
 }
 
 .about-page__block-text {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-weight: 400;
   font-size: 18px;
   line-height: 133%;
@@ -2453,6 +2454,7 @@ body {
 }
 
 .input-file__title {
+  font-weight: 400;
   margin-bottom: 8px;
   font-size: 16px;
   letter-spacing: 0.01em;
@@ -2460,6 +2462,7 @@ body {
 }
 
 .input-file__text {
+  font-weight: 400;
   font-size: 12px;
   line-height: 112%;
   letter-spacing: 0.01em;
@@ -2677,7 +2680,7 @@ body {
 
   .about-page__title {
     font-size: 56px;
-    padding-top: 88px;
+    padding-top: 40px;
   }
 
   .about-page__main-image {
@@ -2685,10 +2688,12 @@ body {
   }
 
   .about-page__block-title {
+    margin-bottom: 40px;
     font-size: 40px;
   }
 
   .about-page__block-text {
+    margin-bottom: 40px;
     font-size: 24px;
   }
 
@@ -2803,6 +2808,19 @@ body {
   .services__cell-text {
     margin-left: calc(16% + 8px);
     font-size: 16px;
+  }
+
+  .about-page__main-image .proof__tags {
+    --padding: 24px;
+  }
+
+  .about-page__block {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+
+  .about-page__block-header {
+    margin-bottom: 40px;
   }
 
   .about-page__block-content {

@@ -6,7 +6,7 @@
    &__container {}
 
    &__title {
-      padding-top: 48px;
+      padding-top: 24px;
       margin-bottom: 32px;
       font-weight: 500;
       font-size: 44px;
@@ -15,7 +15,7 @@
 
       @media (min-width:768px) {
          font-size: 56px;
-         padding-top: 88px;
+         padding-top: 40px;
       }
 
       @media (min-width:1024px) {
@@ -37,20 +37,34 @@
       }
 
       .proof__tags {
+         --padding: 16px;
          position: absolute;
-         bottom: 24px;
-         left: 24px;
-         max-width: 500px;
+         bottom: var(--padding);
+         left: var(--padding);
+         max-width: min(500px, calc(100% - var(--padding) * 2));
+
+         @media (min-width:992px) {
+            --padding: 24px
+         }
       }
    }
 
    &__block {
-      margin-top: 64px;
-      margin-bottom: 64px;
+      margin-top: 32px;
+      margin-bottom: 32px;
+
+      @media (min-width:992px) {
+         margin-top: 64px;
+         margin-bottom: 64px;
+      }
    }
 
    &__block-header {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
+
+      @media (min-width:992px) {
+         margin-bottom: 40px;
+      }
    }
 
    &__block-content {
@@ -61,7 +75,7 @@
    }
 
    &__block-title {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       font-weight: 500;
       font-size: 32px;
       line-height: 110%;
@@ -69,18 +83,20 @@
       color: var(--color-white);
 
       @media (min-width:768px) {
+         margin-bottom: 40px;
          font-size: 40px;
       }
    }
 
    &__block-text {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       font-weight: 400;
       font-size: 18px;
       line-height: 133%;
       color: rgba(255, 255, 255, 0.8);
 
       @media (min-width:768px) {
+         margin-bottom: 40px;
          font-size: 24px;
       }
    }
