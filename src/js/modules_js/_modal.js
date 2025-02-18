@@ -37,3 +37,19 @@ function closeModal(event) {
       document.body.classList.remove('body-overflow');
    }
 }
+// функция закрытия модального окна (передать id модального окна)
+function initCloseModal(modalElement) {
+   if (document.querySelector(`#${modalElement}`)) {
+      document.querySelector(`#${modalElement}`).classList.remove('js-modal-visible');
+   }
+   if (!document.querySelector('.js-modal-visible')) {
+      document.body.classList.remove('body-overflow');
+   }
+}
+// функция открытия модального окна (передать id модального окна)
+function initOpenModal(modalElement) {
+   if (document.querySelector(`#${modalElement}`)) {
+      document.querySelector(`#${modalElement}`).classList.add('js-modal-visible');
+      document.body.classList.add('body-overflow')
+   }
+}
